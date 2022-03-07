@@ -41,8 +41,6 @@ namespace Migraciones.Forms
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
@@ -131,16 +129,6 @@ namespace Migraciones.Forms
             this.toolTip2.SetToolTip(this.btnGuardar, "Guardar");
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(382, 339);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(45, 35);
-            this.btnEliminar.TabIndex = 11;
-            this.toolTip1.SetToolTip(this.btnEliminar, "Eliminar");
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
             // frmConexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,7 +136,6 @@ namespace Migraciones.Forms
             this.ClientSize = new System.Drawing.Size(538, 386);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtInstancia);
@@ -179,9 +166,7 @@ namespace Migraciones.Forms
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.ToolTip toolTip3;
         private System.Windows.Forms.ToolTip toolTip2;
-        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

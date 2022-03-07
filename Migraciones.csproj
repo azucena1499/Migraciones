@@ -53,6 +53,12 @@
     <Compile Include="Forms\frmConexion.Designer.cs">
       <DependentUpon>frmConexion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmConsultas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmConsultas.Designer.cs">
+      <DependentUpon>frmConsultas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\frmConexion.resx">
       <DependentUpon>frmConexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmConsultas.resx">
+      <DependentUpon>frmConsultas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>

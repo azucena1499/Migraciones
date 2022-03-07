@@ -36,22 +36,22 @@ namespace Migraciones
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.txtEmpresa = new System.Windows.Forms.TextBox();
-            this.lblEmpresa = new System.Windows.Forms.Label();
-            this.cboxBuscar = new System.Windows.Forms.ComboBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolBar1 = new System.Windows.Forms.ToolBar();
+            this.tbtbguardarr = new System.Windows.Forms.ToolBarButton();
+            this.Tbtneliminar = new System.Windows.Forms.ToolBarButton();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtBusueda = new System.Windows.Forms.TextBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblClave
             // 
             this.lblClave.AutoSize = true;
-            this.lblClave.Location = new System.Drawing.Point(20, 52);
+            this.lblClave.Location = new System.Drawing.Point(6, 37);
             this.lblClave.Name = "lblClave";
             this.lblClave.Size = new System.Drawing.Size(34, 13);
             this.lblClave.TabIndex = 0;
@@ -59,124 +59,138 @@ namespace Migraciones
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(62, 52);
-            this.txtClave.Multiline = true;
+            this.txtClave.Enabled = false;
+            this.txtClave.Location = new System.Drawing.Point(53, 34);
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(60, 22);
+            this.txtClave.Size = new System.Drawing.Size(60, 20);
             this.txtClave.TabIndex = 1;
             this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
-            this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClave_KeyPress);
             // 
             // btnBuscar
             // 
             this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscar.Enabled = false;
             this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(139, 43);
+            this.btnBuscar.Location = new System.Drawing.Point(134, 19);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(46, 37);
+            this.btnBuscar.Size = new System.Drawing.Size(43, 38);
             this.btnBuscar.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.btnBuscar, "Buscar");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(62, 103);
+            this.txtNombre.Location = new System.Drawing.Point(53, 85);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(276, 20);
             this.txtNombre.TabIndex = 4;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(12, 103);
+            this.lblNombre.Location = new System.Drawing.Point(1, 88);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 3;
             this.lblNombre.Text = "Nombre";
             // 
-            // txtEmpresa
+            // toolBar1
             // 
-            this.txtEmpresa.Location = new System.Drawing.Point(418, 103);
-            this.txtEmpresa.Name = "txtEmpresa";
-            this.txtEmpresa.Size = new System.Drawing.Size(264, 20);
-            this.txtEmpresa.TabIndex = 6;
+            this.toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
+            this.tbtbguardarr,
+            this.Tbtneliminar});
+            this.toolBar1.DropDownArrows = true;
+            this.toolBar1.ImageList = this.imageList1;
+            this.toolBar1.Location = new System.Drawing.Point(0, 0);
+            this.toolBar1.Name = "toolBar1";
+            this.toolBar1.ShowToolTips = true;
+            this.toolBar1.Size = new System.Drawing.Size(698, 28);
+            this.toolBar1.TabIndex = 11;
+            this.toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.toolBar1_ButtonClick);
             // 
-            // lblEmpresa
+            // tbtbguardarr
             // 
-            this.lblEmpresa.AutoSize = true;
-            this.lblEmpresa.Location = new System.Drawing.Point(364, 103);
-            this.lblEmpresa.Name = "lblEmpresa";
-            this.lblEmpresa.Size = new System.Drawing.Size(48, 13);
-            this.lblEmpresa.TabIndex = 5;
-            this.lblEmpresa.Text = "Empresa";
+            this.tbtbguardarr.Enabled = false;
+            this.tbtbguardarr.ImageIndex = 0;
+            this.tbtbguardarr.Name = "toolBarButton1";
             // 
-            // cboxBuscar
+            // Tbtneliminar
             // 
-            this.cboxBuscar.FormattingEnabled = true;
-            this.cboxBuscar.Location = new System.Drawing.Point(210, 52);
-            this.cboxBuscar.Name = "cboxBuscar";
-            this.cboxBuscar.Size = new System.Drawing.Size(148, 21);
-            this.cboxBuscar.TabIndex = 7;
-            this.cboxBuscar.Visible = false;
-            this.cboxBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboxBuscar_KeyPress);
+            this.Tbtneliminar.Enabled = false;
+            this.Tbtneliminar.ImageIndex = 1;
+            this.Tbtneliminar.Name = "Tbtneliminar";
             // 
-            // btnEliminar
+            // imageList1
             // 
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(542, 220);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(45, 35);
-            this.btnEliminar.TabIndex = 8;
-            this.toolTip2.SetToolTip(this.btnEliminar, "Eliminar");
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "1447201522_save.png");
+            this.imageList1.Images.SetKeyName(1, "1447201818_trash.png");
+            this.imageList1.Images.SetKeyName(2, "1447287640_close.png");
             // 
-            // btnGuardar
+            // groupBox1
             // 
-            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.Location = new System.Drawing.Point(593, 220);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(42, 35);
-            this.btnGuardar.TabIndex = 9;
-            this.toolTip3.SetToolTip(this.btnGuardar, "Guardar");
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Controls.Add(this.lblClave);
+            this.groupBox1.Controls.Add(this.txtClave);
+            this.groupBox1.Controls.Add(this.lblNombre);
+            this.groupBox1.Location = new System.Drawing.Point(0, 142);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(356, 133);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Sistema";
             // 
-            // btnCerrar
+            // groupBox2
             // 
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(641, 220);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(45, 35);
-            this.btnCerrar.TabIndex = 10;
-            this.toolTip4.SetToolTip(this.btnCerrar, "Cerrar");
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.txtBusueda);
+            this.groupBox2.Controls.Add(this.btnBuscar);
+            this.groupBox2.Location = new System.Drawing.Point(7, 34);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(205, 70);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Busqueda";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Clave";
+            // 
+            // txtBusueda
+            // 
+            this.txtBusueda.Location = new System.Drawing.Point(46, 29);
+            this.txtBusueda.Name = "txtBusueda";
+            this.txtBusueda.Size = new System.Drawing.Size(60, 20);
+            this.txtBusueda.TabIndex = 5;
+            this.txtBusueda.TextChanged += new System.EventHandler(this.txtBusueda_TextChanged);
+            this.txtBusueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusueda_KeyPress);
             // 
             // frmSistemas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 267);
-            this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.cboxBuscar);
-            this.Controls.Add(this.txtEmpresa);
-            this.Controls.Add(this.lblEmpresa);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.txtClave);
-            this.Controls.Add(this.lblClave);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.toolBar1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSistemas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Captura de Sistemas";
             this.Load += new System.EventHandler(this.frmSistemas_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,16 +203,15 @@ namespace Migraciones
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox txtEmpresa;
-        private System.Windows.Forms.Label lblEmpresa;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ComboBox cboxBuscar;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.ToolTip toolTip2;
-        private System.Windows.Forms.ToolTip toolTip3;
-        private System.Windows.Forms.ToolTip toolTip4;
+        private System.Windows.Forms.ToolBar toolBar1;
+        private System.Windows.Forms.ImageList imageList1;
+        public System.Windows.Forms.ToolBarButton tbtbguardar;
+        public System.Windows.Forms.ToolBarButton Tbtneliminar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtBusueda;
+        public System.Windows.Forms.ToolBarButton tbtbguardarr;
     }
 }
 
