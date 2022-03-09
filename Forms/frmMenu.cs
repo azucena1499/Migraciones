@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,10 @@ namespace Migraciones.Forms
 {
     public partial class frmMenu : Form
     {
-        public frmMenu()
+        private Clases.Conexion objConexionPrincipal;
+        public frmMenu(Clases.Conexion objConexionPrincipal)
         {
+            this.objConexionPrincipal = objConexionPrincipal;
             InitializeComponent();
         }
 
@@ -30,8 +33,13 @@ namespace Migraciones.Forms
 
         private void capturaDeSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Forms.frmSistemas x = new Forms.frmSistemas();
-            //x.Show();
+            frmSistemas ventanaSistema = new frmSistemas(this.objConexionPrincipal);
+            ventanaSistema.Show();
+        }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

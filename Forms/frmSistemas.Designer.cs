@@ -64,7 +64,6 @@ namespace Migraciones
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(60, 20);
             this.txtClave.TabIndex = 1;
-            this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
             // 
             // btnBuscar
             // 
@@ -72,9 +71,10 @@ namespace Migraciones
             this.btnBuscar.Enabled = false;
             this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(134, 19);
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(112, 24);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(43, 38);
+            this.btnBuscar.Size = new System.Drawing.Size(38, 28);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -98,15 +98,17 @@ namespace Migraciones
             // 
             // toolBar1
             // 
+            this.toolBar1.AutoSize = false;
             this.toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
             this.tbtbguardarr,
             this.Tbtneliminar});
+            this.toolBar1.ButtonSize = new System.Drawing.Size(50, 50);
             this.toolBar1.DropDownArrows = true;
             this.toolBar1.ImageList = this.imageList1;
             this.toolBar1.Location = new System.Drawing.Point(0, 0);
             this.toolBar1.Name = "toolBar1";
             this.toolBar1.ShowToolTips = true;
-            this.toolBar1.Size = new System.Drawing.Size(698, 28);
+            this.toolBar1.Size = new System.Drawing.Size(698, 39);
             this.toolBar1.TabIndex = 11;
             this.toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.toolBar1_ButtonClick);
             // 
@@ -148,7 +150,7 @@ namespace Migraciones
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtBusueda);
             this.groupBox2.Controls.Add(this.btnBuscar);
-            this.groupBox2.Location = new System.Drawing.Point(7, 34);
+            this.groupBox2.Location = new System.Drawing.Point(4, 45);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(205, 70);
             this.groupBox2.TabIndex = 13;
@@ -192,7 +194,6 @@ namespace Migraciones
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

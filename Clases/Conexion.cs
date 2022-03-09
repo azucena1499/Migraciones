@@ -7,12 +7,23 @@ using System.Threading.Tasks;
 
 namespace Migraciones.Clases
 {
-    class Conexion
+    public class Conexion
     {
-        public string Conn(string servidor, string instancia, string usuario, string contraseña)
-
+        private string servidor;
+        private string instancia;
+        private string usuario;
+        private string contraseña;
+         public Conexion(string servidor, string instancia, string usuario, string contraseña)
+         {
+            this.servidor = servidor;
+            this.instancia = instancia;
+            this.usuario = usuario;
+            this.contraseña = contraseña;
+                
+         }
+        public string getConexion()
         {
-            string cone = (@"Data Source =" + servidor + "; Initial Catalog =" + instancia + "; Persist Security Info = True;  User ID =" + usuario + "; Password=" + contraseña);
+            string cone = (@"Data Source =" + this.servidor + "; Initial Catalog =" + this.instancia + "; Persist Security Info = True;  User ID =" +this.usuario + "; Password=" + this.contraseña);
             return cone;
         }
   

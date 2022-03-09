@@ -14,19 +14,19 @@ namespace Migraciones
 {
     public partial class frmSistemas : Form
     {
-        Clases.Conexion objconexion;
-        SqlConnection cone;
-        int existe = 0;
+       private Clases.Conexion objConexionPrincipal;
+       private SqlConnection cone;
+       private int existe = 0;
 
-        public frmSistemas()
+        public frmSistemas(Clases.Conexion objConexionPrincipal)
         {
+            this.objConexionPrincipal = objConexionPrincipal;
             InitializeComponent();
         }
 
         private void maximo()
         {
-            objconexion = new Clases.Conexion();
-            cone = new SqlConnection(objconexion.Conn("DESKTOP-4CSQT06", "BMS_MIGRACIONES", "azucenagm", "1499"));
+            cone = new SqlConnection(objConexionPrincipal.getConexion());
             cone.Open();
             string query = "SELECT max(id)+1 as ultimo from Sistemas";
             SqlCommand comando = new SqlCommand(query, cone);
@@ -44,55 +44,6 @@ namespace Migraciones
             txtBusueda.Focus();
             Tbtneliminar.Enabled = false;
         }
-
- 
-        
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            //if (existe == 0)
-            //{
-            //    objconexion = new Clases.Conexion();
-            //    cone = new SqlConnection(objconexion.Conn("DESKTOP-4CSQT06", "BMS_MIGRACIONES", "azucenagm", "1499"));
-            //    //se abre la conexion
-            //    cone.Open();
-            //    string query = "insert into Sistemas values(@id,@nombre,@estatus)";  //este es para insetar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
-            //    SqlCommand comando = new SqlCommand(query, cone);
-            //    comando.Parameters.Clear();
-            //    comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text)); //este es para ya modificar 
-            //    comando.Parameters.AddWithValue("@nombre", txtNombre.Text);
-            //    comando.Parameters.AddWithValue("@estatus", cboxBuscar.SelectedIndex);
-
-            //    comando.ExecuteNonQuery();//es para verificar los editados
-            //    MessageBox.Show("Sistema guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    btnGuardar.Enabled = false;
-            //    txtNombre.Clear();
-            //    txtClave.Clear();
-
-            //}
-            //if (existe == 1)
-            //{
-            //    //fue un 0
-            //    objconexion = new Clases.Conexion();
-            //    cone = new SqlConnection(objconexion.Conn("DESKTOP-4CSQT06", "BMS_MIGRACIONES", "azucenagm", "1499"));
-            //    //se abre la conexion
-            //    cone.Open();
-            //    string query = "update Sistemas set id=@id,nombre=@nombre where id=@id";  //este es para modificar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
-            //    SqlCommand comando = new SqlCommand(query, cone);
-            //    comando.Parameters.Clear();
-            //    comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text)); //este es para ya modificar 
-            //    comando.Parameters.AddWithValue("@nombre", txtNombre.Text);
-            //    comando.Parameters.AddWithValue("@estatus", cboxBuscar.SelectedIndex);
-
-            //    comando.ExecuteNonQuery();
-            //    MessageBox.Show("Sistema modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    //dejar el forms como el inicio
-            //    btnBuscar.Enabled = false;
-            //    txtNombre.Clear();
-            //    txtClave.Clear();
-            //}
-        }
-
         private void frmSistemas_Load(object sender, EventArgs e)
         {
             maximo();
@@ -107,8 +58,7 @@ namespace Migraciones
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            objconexion = new Clases.Conexion();
-            cone = new SqlConnection(objconexion.Conn("DESKTOP-4CSQT06", "BMS_MIGRACIONES", "azucenagm", "1499"));
+            cone = new SqlConnection(objConexionPrincipal.getConexion());
             //se abre la conexion
             cone.Open();
             string query = "update Sistemas set estatus=0 where id=id";
@@ -136,8 +86,7 @@ namespace Migraciones
             else
             {
                 //no fue nulo
-                objconexion = new Clases.Conexion();
-                cone = new SqlConnection(objconexion.Conn("DESKTOP-4CSQT06", "BMS_MIGRACIONES", "azucenagm", "1499"));
+                cone = new SqlConnection(objConexionPrincipal.getConexion());
                 //se abre la conexion
                 cone.Open();
                 string query = "select * from Sistemas where id=@id";
@@ -190,22 +139,14 @@ namespace Migraciones
         }
 
 
-
-        private void txtClave_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void toolBar1_ButtonClick(object sender, ToolBarButtonClickEventArgs e)
         {
             switch (toolBar1.Buttons.IndexOf(e.Button))
             {
-
                 case 0:
                     if (existe == 0)
                     {
-                        objconexion = new Clases.Conexion();
-                        cone = new SqlConnection(objconexion.Conn("DESKTOP-4CSQT06", "BMS_MIGRACIONES", "azucenagm", "1499"));
+                        cone = new SqlConnection(objConexionPrincipal.getConexion());
                         //se abre la conexion
                         cone.Open();
                         string query = "insert into Sistemas values(@id,@nombre)";  //este es para insetar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
@@ -224,8 +165,7 @@ namespace Migraciones
                     }
                     if (existe == 1)
                     {
-                        objconexion = new Clases.Conexion();
-                        cone = new SqlConnection(objconexion.Conn("DESKTOP-4CSQT06", "BMS_MIGRACIONES", "azucenagm", "1499"));
+                        cone = new SqlConnection(objConexionPrincipal.getConexion());
                         //se abre la conexion
                         cone.Open();
                         string query = "update Sistemas set id=@id,nombre=@nombre where id=@id";  //este es para modificar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
@@ -233,7 +173,6 @@ namespace Migraciones
                         comando.Parameters.Clear();
                         comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text)); //este es para ya modificar 
                         comando.Parameters.AddWithValue("@nombre", txtNombre.Text);
-
                         comando.ExecuteNonQuery();
                         MessageBox.Show("Sistema modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //dejar el forms como el inicio
@@ -248,19 +187,17 @@ namespace Migraciones
                     SqlCommand comandoo = new SqlCommand(query1, cone);
                     comandoo.Parameters.Clear();
                     comandoo.Parameters.AddWithValue("@id", txtClave.Text);
-                    if (MessageBox.Show("El Sistema se dara de baja,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
+                    if (MessageBox.Show("El Sistema sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Stop) == DialogResult.Yes)
                     {
                         comandoo.ExecuteNonQuery();
-
-                        MessageBox.Show("Cliente eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Se ha eliminado el registro", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+                    txtBusueda.Clear();
                     limpiar();
                     maximo();
                     break;
-                case 2:
-                    MessageBox.Show("Third toolbar button clicked");
-                    break;
+               
             }
 
         }
@@ -291,8 +228,7 @@ namespace Migraciones
                 else
                 {
                     //no fue nulo
-                    objconexion = new Clases.Conexion();
-                    cone = new SqlConnection(objconexion.Conn("DESKTOP-4CSQT06", "BMS_MIGRACIONES", "azucenagm", "1499"));
+                    cone = new SqlConnection(objConexionPrincipal.getConexion());
                     //se abre la conexion
                     cone.Open();
                     string query = "select * from Sistemas where id=@id";

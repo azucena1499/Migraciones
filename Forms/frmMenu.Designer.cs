@@ -31,11 +31,11 @@ namespace Migraciones.Forms
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sistemasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.capturaDeSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tablasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conexionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.capturaDeSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +62,13 @@ namespace Migraciones.Forms
             this.sistemasToolStripMenuItem.Text = "Sistemas";
             this.sistemasToolStripMenuItem.Click += new System.EventHandler(this.sistemasToolStripMenuItem_Click);
             // 
+            // capturaDeSistemaToolStripMenuItem
+            // 
+            this.capturaDeSistemaToolStripMenuItem.Name = "capturaDeSistemaToolStripMenuItem";
+            this.capturaDeSistemaToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.capturaDeSistemaToolStripMenuItem.Text = "Captura de sistema";
+            this.capturaDeSistemaToolStripMenuItem.Click += new System.EventHandler(this.capturaDeSistemaToolStripMenuItem_Click);
+            // 
             // tablasToolStripMenuItem
             // 
             this.tablasToolStripMenuItem.Name = "tablasToolStripMenuItem";
@@ -86,13 +93,6 @@ namespace Migraciones.Forms
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
-            // capturaDeSistemaToolStripMenuItem
-            // 
-            this.capturaDeSistemaToolStripMenuItem.Name = "capturaDeSistemaToolStripMenuItem";
-            this.capturaDeSistemaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.capturaDeSistemaToolStripMenuItem.Text = "Captura de sistema";
-            this.capturaDeSistemaToolStripMenuItem.Click += new System.EventHandler(this.capturaDeSistemaToolStripMenuItem_Click);
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +104,7 @@ namespace Migraciones.Forms
             this.MinimizeBox = false;
             this.Name = "frmMenu";
             this.Text = "frmMenu";
+            this.Load += new System.EventHandler(this.frmMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

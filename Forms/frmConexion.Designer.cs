@@ -29,7 +29,6 @@ namespace Migraciones.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConexion));
             this.lblServidor = new System.Windows.Forms.Label();
             this.lblinstancia = new System.Windows.Forms.Label();
@@ -39,10 +38,7 @@ namespace Migraciones.Forms
             this.txtInstancia = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnEntrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblServidor
@@ -66,7 +62,7 @@ namespace Migraciones.Forms
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(230, 184);
+            this.lblUsuario.Location = new System.Drawing.Point(230, 175);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 2;
@@ -75,7 +71,7 @@ namespace Migraciones.Forms
             // lblContraseña
             // 
             this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Location = new System.Drawing.Point(221, 260);
+            this.lblContraseña.Location = new System.Drawing.Point(221, 251);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(61, 13);
             this.lblContraseña.TabIndex = 3;
@@ -87,6 +83,7 @@ namespace Migraciones.Forms
             this.txtServidor.Name = "txtServidor";
             this.txtServidor.Size = new System.Drawing.Size(181, 20);
             this.txtServidor.TabIndex = 4;
+            this.txtServidor.TextChanged += new System.EventHandler(this.txtServidor_TextChanged);
             // 
             // txtInstancia
             // 
@@ -94,48 +91,39 @@ namespace Migraciones.Forms
             this.txtInstancia.Name = "txtInstancia";
             this.txtInstancia.Size = new System.Drawing.Size(181, 20);
             this.txtInstancia.TabIndex = 5;
+            this.txtInstancia.TextChanged += new System.EventHandler(this.txtInstancia_TextChanged);
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(161, 222);
+            this.txtUsuario.Location = new System.Drawing.Point(161, 213);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(181, 20);
             this.txtUsuario.TabIndex = 6;
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(161, 292);
+            this.txtContraseña.Location = new System.Drawing.Point(161, 283);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(181, 20);
             this.txtContraseña.TabIndex = 7;
             // 
-            // btnCerrar
+            // btnEntrar
             // 
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(481, 339);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(45, 35);
-            this.btnCerrar.TabIndex = 13;
-            this.toolTip3.SetToolTip(this.btnCerrar, "Cerrar");
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.Location = new System.Drawing.Point(433, 339);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(42, 35);
-            this.btnGuardar.TabIndex = 12;
-            this.toolTip2.SetToolTip(this.btnGuardar, "Guardar");
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnEntrar.Enabled = false;
+            this.btnEntrar.Image = ((System.Drawing.Image)(resources.GetObject("btnEntrar.Image")));
+            this.btnEntrar.Location = new System.Drawing.Point(472, 333);
+            this.btnEntrar.Name = "btnEntrar";
+            this.btnEntrar.Size = new System.Drawing.Size(41, 41);
+            this.btnEntrar.TabIndex = 12;
+            this.btnEntrar.UseVisualStyleBackColor = true;
+            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
             // frmConexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 386);
-            this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtInstancia);
@@ -148,7 +136,7 @@ namespace Migraciones.Forms
             this.MinimizeBox = false;
             this.Name = "frmConexion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Conexion Origen";
+            this.Text = "Conexion Principal";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,9 +152,6 @@ namespace Migraciones.Forms
         private System.Windows.Forms.TextBox txtInstancia;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContraseña;
-        private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.ToolTip toolTip3;
-        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.Button btnEntrar;
     }
 }
