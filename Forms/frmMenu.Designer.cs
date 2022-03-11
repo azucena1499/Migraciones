@@ -29,6 +29,7 @@ namespace Migraciones.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sistemasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.capturaDeSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,8 +58,9 @@ namespace Migraciones.Forms
             // 
             this.sistemasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.capturaDeSistemaToolStripMenuItem});
+            this.sistemasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sistemasToolStripMenuItem.Image")));
             this.sistemasToolStripMenuItem.Name = "sistemasToolStripMenuItem";
-            this.sistemasToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.sistemasToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.sistemasToolStripMenuItem.Text = "Sistemas";
             this.sistemasToolStripMenuItem.Click += new System.EventHandler(this.sistemasToolStripMenuItem_Click);
             // 
@@ -71,27 +73,34 @@ namespace Migraciones.Forms
             // 
             // tablasToolStripMenuItem
             // 
+            this.tablasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tablasToolStripMenuItem.Image")));
             this.tablasToolStripMenuItem.Name = "tablasToolStripMenuItem";
-            this.tablasToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.tablasToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.tablasToolStripMenuItem.Text = "Tablas ";
+            this.tablasToolStripMenuItem.Click += new System.EventHandler(this.tablasToolStripMenuItem_Click);
             // 
             // conexionesToolStripMenuItem
             // 
+            this.conexionesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("conexionesToolStripMenuItem.Image")));
             this.conexionesToolStripMenuItem.Name = "conexionesToolStripMenuItem";
-            this.conexionesToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.conexionesToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
             this.conexionesToolStripMenuItem.Text = "Conexiones";
             // 
             // consultasToolStripMenuItem
             // 
+            this.consultasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("consultasToolStripMenuItem.Image")));
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.consultasToolStripMenuItem.Text = "Consultas";
+            this.consultasToolStripMenuItem.Click += new System.EventHandler(this.consultasToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
+            this.salirToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salirToolStripMenuItem.Image")));
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -103,7 +112,8 @@ namespace Migraciones.Forms
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMenu";
-            this.Text = "frmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Menu";
             this.Load += new System.EventHandler(this.frmMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

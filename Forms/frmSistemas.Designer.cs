@@ -36,14 +36,14 @@ namespace Migraciones
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.toolBar1 = new System.Windows.Forms.ToolBar();
-            this.tbtbguardarr = new System.Windows.Forms.ToolBarButton();
-            this.Tbtneliminar = new System.Windows.Forms.ToolBarButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBusueda = new System.Windows.Forms.TextBox();
+            this.toolBar1 = new System.Windows.Forms.ToolBar();
+            this.tbtbguardarr = new System.Windows.Forms.ToolBarButton();
+            this.tbteliminar = new System.Windows.Forms.ToolBarButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -96,41 +96,12 @@ namespace Migraciones
             this.lblNombre.TabIndex = 3;
             this.lblNombre.Text = "Nombre";
             // 
-            // toolBar1
-            // 
-            this.toolBar1.AutoSize = false;
-            this.toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
-            this.tbtbguardarr,
-            this.Tbtneliminar});
-            this.toolBar1.ButtonSize = new System.Drawing.Size(50, 50);
-            this.toolBar1.DropDownArrows = true;
-            this.toolBar1.ImageList = this.imageList1;
-            this.toolBar1.Location = new System.Drawing.Point(0, 0);
-            this.toolBar1.Name = "toolBar1";
-            this.toolBar1.ShowToolTips = true;
-            this.toolBar1.Size = new System.Drawing.Size(698, 39);
-            this.toolBar1.TabIndex = 11;
-            this.toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.toolBar1_ButtonClick);
-            // 
-            // tbtbguardarr
-            // 
-            this.tbtbguardarr.Enabled = false;
-            this.tbtbguardarr.ImageIndex = 0;
-            this.tbtbguardarr.Name = "toolBarButton1";
-            // 
-            // Tbtneliminar
-            // 
-            this.Tbtneliminar.Enabled = false;
-            this.Tbtneliminar.ImageIndex = 1;
-            this.Tbtneliminar.Name = "Tbtneliminar";
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "1447201522_save.png");
-            this.imageList1.Images.SetKeyName(1, "1447201818_trash.png");
-            this.imageList1.Images.SetKeyName(2, "1447287640_close.png");
+            this.imageList1.Images.SetKeyName(1, "gui_eraser_icon_157160.png");
             // 
             // groupBox1
             // 
@@ -175,14 +146,38 @@ namespace Migraciones
             this.txtBusueda.TextChanged += new System.EventHandler(this.txtBusueda_TextChanged);
             this.txtBusueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusueda_KeyPress);
             // 
+            // toolBar1
+            // 
+            this.toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
+            this.tbtbguardarr,
+            this.tbteliminar});
+            this.toolBar1.DropDownArrows = true;
+            this.toolBar1.ImageList = this.imageList1;
+            this.toolBar1.Location = new System.Drawing.Point(0, 0);
+            this.toolBar1.Name = "toolBar1";
+            this.toolBar1.ShowToolTips = true;
+            this.toolBar1.Size = new System.Drawing.Size(698, 28);
+            this.toolBar1.TabIndex = 14;
+            this.toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.toolBar1_ButtonClick_1);
+            // 
+            // tbtbguardarr
+            // 
+            this.tbtbguardarr.ImageIndex = 0;
+            this.tbtbguardarr.Name = "tbtbguardarr";
+            // 
+            // tbteliminar
+            // 
+            this.tbteliminar.ImageIndex = 1;
+            this.tbteliminar.Name = "tbteliminar";
+            // 
             // frmSistemas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 267);
+            this.Controls.Add(this.toolBar1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.toolBar1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSistemas";
@@ -194,6 +189,7 @@ namespace Migraciones
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -204,15 +200,14 @@ namespace Migraciones
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.ToolBar toolBar1;
         private System.Windows.Forms.ImageList imageList1;
-        public System.Windows.Forms.ToolBarButton tbtbguardar;
-        public System.Windows.Forms.ToolBarButton Tbtneliminar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBusueda;
-        public System.Windows.Forms.ToolBarButton tbtbguardarr;
+        private System.Windows.Forms.ToolBar toolBar1;
+        private System.Windows.Forms.ToolBarButton tbtbguardarr;
+        private System.Windows.Forms.ToolBarButton tbteliminar;
     }
 }
 

@@ -71,6 +71,12 @@
     <Compile Include="Forms\frmSistemas.Designer.cs">
       <DependentUpon>frmSistemas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmTablas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTablas.Designer.cs">
+      <DependentUpon>frmTablas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\frmConexion.resx">
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSistemas.resx">
       <DependentUpon>frmSistemas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTablas.resx">
+      <DependentUpon>frmTablas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

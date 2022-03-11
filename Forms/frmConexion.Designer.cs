@@ -83,6 +83,7 @@ namespace Migraciones.Forms
             this.txtServidor.Name = "txtServidor";
             this.txtServidor.Size = new System.Drawing.Size(181, 20);
             this.txtServidor.TabIndex = 4;
+            this.txtServidor.Text = "DESKTOP-4CSQT06";
             this.txtServidor.TextChanged += new System.EventHandler(this.txtServidor_TextChanged);
             // 
             // txtInstancia
@@ -91,6 +92,7 @@ namespace Migraciones.Forms
             this.txtInstancia.Name = "txtInstancia";
             this.txtInstancia.Size = new System.Drawing.Size(181, 20);
             this.txtInstancia.TabIndex = 5;
+            this.txtInstancia.Text = "BMS_MIGRACIONES";
             this.txtInstancia.TextChanged += new System.EventHandler(this.txtInstancia_TextChanged);
             // 
             // txtUsuario
@@ -99,6 +101,7 @@ namespace Migraciones.Forms
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(181, 20);
             this.txtUsuario.TabIndex = 6;
+            this.txtUsuario.Text = "azucenagm";
             // 
             // txtContraseña
             // 
@@ -106,6 +109,7 @@ namespace Migraciones.Forms
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(181, 20);
             this.txtContraseña.TabIndex = 7;
+            this.txtContraseña.Text = "1499";
             // 
             // btnEntrar
             // 

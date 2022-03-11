@@ -42,7 +42,7 @@ namespace Migraciones
             txtNombre.Clear();
             txtClave.Clear();
             txtBusueda.Focus();
-            Tbtneliminar.Enabled = false;
+            tbteliminar.Enabled = false;
         }
         private void frmSistemas_Load(object sender, EventArgs e)
         {
@@ -80,7 +80,7 @@ namespace Migraciones
             //chechando que no sea valor nulo o blanco
             if (string.IsNullOrEmpty(txtBusueda.Text))
             {
-                MessageBox.Show("Error:No se permiten nulos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);                //txtClave.Clear();
+                MessageBox.Show("Error:No se permiten nulos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);               
                 txtBusueda.Focus();
             }
             else
@@ -107,7 +107,7 @@ namespace Migraciones
                     txtNombre.Enabled = true;
                     txtNombre.Focus();
                     txtClave.Enabled = false;
-                    Tbtneliminar.Enabled = true;
+                    tbteliminar.Enabled = true;
 
 
                     //igualo los campos o columnas al txtnombre
@@ -117,7 +117,7 @@ namespace Migraciones
                 else
                 {
                     //si la variable existe vale 0 y se usara insert
-                    Tbtneliminar.Enabled = false;
+                    tbteliminar.Enabled = false;
                     limpiar();
                     maximo();
 
@@ -138,8 +138,89 @@ namespace Migraciones
             }
         }
 
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtClave.Text) && !string.IsNullOrEmpty(txtNombre.Text)&& txtClave.Text.Trim()!="" && txtNombre.Text.Trim()!="")
+            {
+                tbtbguardarr.Enabled = true;
+            }
+            else
+            {
+                tbtbguardarr.Enabled = false;
 
-        private void toolBar1_ButtonClick(object sender, ToolBarButtonClickEventArgs e)
+            }
+        }
+
+        private void txtBusueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                //chechando que no sea valor nulo o blanco
+                if (string.IsNullOrEmpty(txtClave.Text))
+                {
+                    MessageBox.Show("Error:No se permiten nulos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //txtClave.Clear();
+                    txtBusueda.Focus();
+                }
+                else
+                {
+                    //no fue nulo
+                    cone = new SqlConnection(objConexionPrincipal.getConexion());
+                    //se abre la conexion
+                    cone.Open();
+                    string query = "select * from Sistemas where id=@id";
+                    //asigno a comando el sqlcommand
+                    SqlCommand comando = new SqlCommand(query, cone);
+                    //inicializo cualquier parametrodefinido anteriormente
+                    comando.Parameters.Clear();
+                    comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text));
+                    comando.Parameters.AddWithValue("@nombre", this.txtNombre.Text);
+
+                    SqlDataReader leer = comando.ExecuteReader();
+                    if (leer.Read())
+                    {
+                        //inicializo la variable 1 para que el programa sepa que existe
+                        existe = 1;
+                        txtNombre.Enabled = true;
+                        txtNombre.Focus();
+                        txtClave.Enabled = false;
+
+                        //igualo los campos o columnas al txtnombre
+                        txtNombre.Text = leer["nombre"].ToString();
+                        txtClave.Text = leer["id"].ToString();
+
+                    }
+                    else
+                    {
+                        //si la variable existe vale 0 y se usara insert
+                        existe = 0;
+                        if (MessageBox.Show("Sistema no registrado.¿desea agregar un nuevo sistema?", "no existe", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                        {
+                            //poner un habilitar aqui
+                            txtNombre.Enabled = true;
+                            txtNombre.Focus();
+
+                        }
+
+                    }
+                }
+        }
+
+        private void txtBusueda_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBusueda.Text != "")
+            {
+                btnBuscar.Enabled = true;
+
+            }
+            else
+            {
+                btnBuscar.Enabled = false;
+
+            }
+           
+        }
+
+        private void toolBar1_ButtonClick_1(object sender, ToolBarButtonClickEventArgs e)
         {
             switch (toolBar1.Buttons.IndexOf(e.Button))
             {
@@ -197,99 +278,7 @@ namespace Migraciones
                     limpiar();
                     maximo();
                     break;
-               
             }
-
-        }
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtClave.Text) && !string.IsNullOrEmpty(txtNombre.Text)&& txtClave.Text.Trim()!="" && txtNombre.Text.Trim()!="")
-            {
-                tbtbguardarr.Enabled = true;
-            }
-            else
-            {
-                tbtbguardarr.Enabled = false;
-
-            }
-        }
-
-        private void txtBusueda_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-                //chechando que no sea valor nulo o blanco
-                if (string.IsNullOrEmpty(txtClave.Text))
-                {
-                    MessageBox.Show("Error:No se permiten nulos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //txtClave.Clear();
-                    txtBusueda.Focus();
-                }
-                else
-                {
-                    //no fue nulo
-                    cone = new SqlConnection(objConexionPrincipal.getConexion());
-                    //se abre la conexion
-                    cone.Open();
-                    string query = "select * from Sistemas where id=@id";
-                    //asigno a comando el sqlcommand
-                    SqlCommand comando = new SqlCommand(query, cone);
-
-                    //inicializo cualquier parametrodefinido anteriormente
-                    comando.Parameters.Clear();
-
-                    comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text));
-                    comando.Parameters.AddWithValue("@nombre", this.txtNombre.Text);
-
-
-                    SqlDataReader leer = comando.ExecuteReader();
-                    if (leer.Read())
-                    {
-                        //inicializo la variable 1 para que el programa sepa que existe
-                        existe = 1;
-                        txtNombre.Enabled = true;
-
-                        txtNombre.Focus();
-                        txtClave.Enabled = false;
-
-
-                        //igualo los campos o columnas al txtnombre
-                        txtNombre.Text = leer["nombre"].ToString();
-                        txtClave.Text = leer["id"].ToString();
-
-
-                    }
-                    else
-                    {
-                        //si la variable existe vale 0 y se usara insert
-                        existe = 0;
-                        if (MessageBox.Show("Sistema no registrado.¿desea agregar un nuevo sistema?", "no existe", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-                        {
-                            //poner un habilitar aqui
-                            txtNombre.Enabled = true;
-                            txtNombre.Focus();
-
-
-                        }
-
-
-                    }
-                }
-        }
-
-        private void txtBusueda_TextChanged(object sender, EventArgs e)
-        {
-            if (txtBusueda.Text != "")
-            {
-                btnBuscar.Enabled = true;
-
-            }
-            else
-            {
-                btnBuscar.Enabled = false;
-
-            }
-           
         }
     }
     

@@ -41,5 +41,23 @@ namespace Migraciones.Forms
         {
 
         }
+
+        private void consultasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultas ventanaConsulta = new frmConsultas(this.objConexionPrincipal);
+            ventanaConsulta.Show();
+        }
+
+        private void tablasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTablas ventanaTabla = new frmTablas(this.objConexionPrincipal);
+            ventanaTabla.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
     }
 }
