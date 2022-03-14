@@ -113,7 +113,6 @@ namespace Migraciones.Forms
             // 
             // btnEntrar
             // 
-            this.btnEntrar.Enabled = false;
             this.btnEntrar.Image = ((System.Drawing.Image)(resources.GetObject("btnEntrar.Image")));
             this.btnEntrar.Location = new System.Drawing.Point(472, 333);
             this.btnEntrar.Name = "btnEntrar";

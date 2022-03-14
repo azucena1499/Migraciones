@@ -16,7 +16,7 @@ namespace Migraciones
     {
        private Clases.Conexion objConexionPrincipal;
        private SqlConnection cone;
-       private int existe = 0;
+       private Boolean existe;
 
         public frmSistemas(Clases.Conexion objConexionPrincipal)
         {
@@ -278,6 +278,25 @@ namespace Migraciones
                     limpiar();
                     maximo();
                     break;
+            }
+        }
+
+        private void toolBuscar_Click(object sender, EventArgs e)
+        {
+            Migraciones.Forms.frmBusquedaSistema frm = new Migraciones.Forms.frmBusquedaSistema(objConexionPrincipal);
+            frm.ShowDialog();
+
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                txtClave.Focus();
+                txtClave.Text = frm.dgBusqueda.Rows[frm.dgBusqueda.CurrentRow.Index].Cells[0].Value.ToString();
+                txtNombre.Text = frm.dgBusqueda.Rows[frm.dgBusqueda.CurrentRow.Index].Cells[1].Value.ToString();
+                existe = true;
+            }
+            else
+            {
+                existe = false;
+
             }
         }
     }

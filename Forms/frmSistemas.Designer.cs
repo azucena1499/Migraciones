@@ -41,11 +41,14 @@ namespace Migraciones
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBusueda = new System.Windows.Forms.TextBox();
-            this.toolBar1 = new System.Windows.Forms.ToolBar();
-            this.tbtbguardarr = new System.Windows.Forms.ToolBarButton();
-            this.tbteliminar = new System.Windows.Forms.ToolBarButton();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolGuardar = new System.Windows.Forms.ToolStripButton();
+            this.toolBuscar = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblClave
@@ -81,7 +84,7 @@ namespace Migraciones
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(53, 85);
+            this.txtNombre.Location = new System.Drawing.Point(53, 69);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(276, 20);
             this.txtNombre.TabIndex = 4;
@@ -90,7 +93,7 @@ namespace Migraciones
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(1, 88);
+            this.lblNombre.Location = new System.Drawing.Point(1, 72);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 3;
@@ -109,9 +112,9 @@ namespace Migraciones
             this.groupBox1.Controls.Add(this.lblClave);
             this.groupBox1.Controls.Add(this.txtClave);
             this.groupBox1.Controls.Add(this.lblNombre);
-            this.groupBox1.Location = new System.Drawing.Point(0, 142);
+            this.groupBox1.Location = new System.Drawing.Point(12, 60);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(356, 133);
+            this.groupBox1.Size = new System.Drawing.Size(356, 108);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sistema";
@@ -121,7 +124,7 @@ namespace Migraciones
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtBusueda);
             this.groupBox2.Controls.Add(this.btnBuscar);
-            this.groupBox2.Location = new System.Drawing.Point(4, 45);
+            this.groupBox2.Location = new System.Drawing.Point(414, 60);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(205, 70);
             this.groupBox2.TabIndex = 13;
@@ -146,36 +149,65 @@ namespace Migraciones
             this.txtBusueda.TextChanged += new System.EventHandler(this.txtBusueda_TextChanged);
             this.txtBusueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusueda_KeyPress);
             // 
-            // toolBar1
+            // statusStrip1
             // 
-            this.toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
-            this.tbtbguardarr,
-            this.tbteliminar});
-            this.toolBar1.DropDownArrows = true;
-            this.toolBar1.ImageList = this.imageList1;
-            this.toolBar1.Location = new System.Drawing.Point(0, 0);
-            this.toolBar1.Name = "toolBar1";
-            this.toolBar1.ShowToolTips = true;
-            this.toolBar1.Size = new System.Drawing.Size(698, 28);
-            this.toolBar1.TabIndex = 14;
-            this.toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.toolBar1_ButtonClick_1);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 186);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(698, 22);
+            this.statusStrip1.TabIndex = 15;
+            this.statusStrip1.Text = "statusStrip1";
             // 
-            // tbtbguardarr
+            // toolStrip1
             // 
-            this.tbtbguardarr.ImageIndex = 0;
-            this.tbtbguardarr.Name = "tbtbguardarr";
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolNuevo,
+            this.toolGuardar,
+            this.toolBuscar});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(698, 39);
+            this.toolStrip1.TabIndex = 16;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // tbteliminar
+            // toolNuevo
             // 
-            this.tbteliminar.ImageIndex = 1;
-            this.tbteliminar.Name = "tbteliminar";
+            this.toolNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolNuevo.Image = ((System.Drawing.Image)(resources.GetObject("toolNuevo.Image")));
+            this.toolNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolNuevo.Name = "toolNuevo";
+            this.toolNuevo.Size = new System.Drawing.Size(36, 36);
+            this.toolNuevo.Text = "Nuevo";
+            // 
+            // toolGuardar
+            // 
+            this.toolGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolGuardar.Image = ((System.Drawing.Image)(resources.GetObject("toolGuardar.Image")));
+            this.toolGuardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolGuardar.Name = "toolGuardar";
+            this.toolGuardar.Size = new System.Drawing.Size(36, 36);
+            this.toolGuardar.Text = "toolBar";
+            // 
+            // toolBuscar
+            // 
+            this.toolBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolBuscar.Image = ((System.Drawing.Image)(resources.GetObject("toolBuscar.Image")));
+            this.toolBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolBuscar.Name = "toolBuscar";
+            this.toolBuscar.Size = new System.Drawing.Size(36, 36);
+            this.toolBuscar.Text = "toolStripButton2";
+            this.toolBuscar.ToolTipText = "Buscar";
+            this.toolBuscar.Click += new System.EventHandler(this.toolBuscar_Click);
             // 
             // frmSistemas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 267);
-            this.Controls.Add(this.toolBar1);
+            this.ClientSize = new System.Drawing.Size(698, 208);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
@@ -188,6 +220,8 @@ namespace Migraciones
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,9 +239,11 @@ namespace Migraciones
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBusueda;
-        private System.Windows.Forms.ToolBar toolBar1;
-        private System.Windows.Forms.ToolBarButton tbtbguardarr;
-        private System.Windows.Forms.ToolBarButton tbteliminar;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolGuardar;
+        private System.Windows.Forms.ToolStripButton toolBuscar;
+        private System.Windows.Forms.ToolStripButton toolNuevo;
     }
 }
 
