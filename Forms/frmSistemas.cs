@@ -14,9 +14,9 @@ namespace Migraciones
 {
     public partial class frmSistemas : Form
     {
-       private Clases.Conexion objConexionPrincipal;
-       private SqlConnection cone;
-       private Boolean existe;
+        private Clases.Conexion objConexionPrincipal;
+        private SqlConnection cone;
+        private Boolean existe;
 
         public frmSistemas(Clases.Conexion objConexionPrincipal)
         {
@@ -41,13 +41,11 @@ namespace Migraciones
 
             txtNombre.Clear();
             txtClave.Clear();
-            txtBusueda.Focus();
-            tbteliminar.Enabled = false;
+            //tbteliminar.Enabled = false;
         }
         private void frmSistemas_Load(object sender, EventArgs e)
         {
             maximo();
-            txtBusueda.Focus();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -75,211 +73,38 @@ namespace Migraciones
             limpiar();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            //chechando que no sea valor nulo o blanco
-            if (string.IsNullOrEmpty(txtBusueda.Text))
-            {
-                MessageBox.Show("Error:No se permiten nulos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);               
-                txtBusueda.Focus();
-            }
-            else
-            {
-                //no fue nulo
-                cone = new SqlConnection(objConexionPrincipal.getConexion());
-                //se abre la conexion
-                cone.Open();
-                string query = "select * from Sistemas where id=@id";
-                //asigno a comando el sqlcommand
-                SqlCommand comando = new SqlCommand(query, cone);
-
-                //inicializo cualquier parametrodefinido anteriormente
-                comando.Parameters.Clear();
-
-                comando.Parameters.AddWithValue("@id", int.Parse(txtBusueda.Text));
-
-
-                SqlDataReader leer = comando.ExecuteReader();
-                if (leer.Read())
-                {
-                    //inicializo la variable 1 para que el programa sepa que existe
-                    existe = 1;
-                    txtNombre.Enabled = true;
-                    txtNombre.Focus();
-                    txtClave.Enabled = false;
-                    tbteliminar.Enabled = true;
-
-
-                    //igualo los campos o columnas al txtnombre
-                    txtNombre.Text = leer["nombre"].ToString();
-                    txtClave.Text = leer["id"].ToString();
-                }
-                else
-                {
-                    //si la variable existe vale 0 y se usara insert
-                    tbteliminar.Enabled = false;
-                    limpiar();
-                    maximo();
-
-                    existe = 0;
-                    if (MessageBox.Show("Sistema no registrado.¿desea agregar un nuevo sistema?", "no existe", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-                    {
-                        //poner un habilitar aqui
-                        txtNombre.Enabled = true;
-                        txtNombre.Focus();
-                       
-                    }
-
-
-                }
-                leer.Close();
-                    
-
-            }
-        }
-
+      
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtClave.Text) && !string.IsNullOrEmpty(txtNombre.Text)&& txtClave.Text.Trim()!="" && txtNombre.Text.Trim()!="")
+            if (!string.IsNullOrEmpty(txtClave.Text) && !string.IsNullOrEmpty(txtNombre.Text) && txtClave.Text.Trim() != "" && txtNombre.Text.Trim() != "")
             {
-                tbtbguardarr.Enabled = true;
+                toolGuardar.Enabled = true;
             }
             else
             {
-                tbtbguardarr.Enabled = false;
+                toolGuardar.Enabled = false;
 
             }
         }
 
-        private void txtBusueda_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-                //chechando que no sea valor nulo o blanco
-                if (string.IsNullOrEmpty(txtClave.Text))
-                {
-                    MessageBox.Show("Error:No se permiten nulos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //txtClave.Clear();
-                    txtBusueda.Focus();
-                }
-                else
-                {
-                    //no fue nulo
-                    cone = new SqlConnection(objConexionPrincipal.getConexion());
-                    //se abre la conexion
-                    cone.Open();
-                    string query = "select * from Sistemas where id=@id";
-                    //asigno a comando el sqlcommand
-                    SqlCommand comando = new SqlCommand(query, cone);
-                    //inicializo cualquier parametrodefinido anteriormente
-                    comando.Parameters.Clear();
-                    comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text));
-                    comando.Parameters.AddWithValue("@nombre", this.txtNombre.Text);
-
-                    SqlDataReader leer = comando.ExecuteReader();
-                    if (leer.Read())
-                    {
-                        //inicializo la variable 1 para que el programa sepa que existe
-                        existe = 1;
-                        txtNombre.Enabled = true;
-                        txtNombre.Focus();
-                        txtClave.Enabled = false;
-
-                        //igualo los campos o columnas al txtnombre
-                        txtNombre.Text = leer["nombre"].ToString();
-                        txtClave.Text = leer["id"].ToString();
-
-                    }
-                    else
-                    {
-                        //si la variable existe vale 0 y se usara insert
-                        existe = 0;
-                        if (MessageBox.Show("Sistema no registrado.¿desea agregar un nuevo sistema?", "no existe", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-                        {
-                            //poner un habilitar aqui
-                            txtNombre.Enabled = true;
-                            txtNombre.Focus();
-
-                        }
-
-                    }
-                }
-        }
+       
 
         private void txtBusueda_TextChanged(object sender, EventArgs e)
         {
-            if (txtBusueda.Text != "")
-            {
-                btnBuscar.Enabled = true;
+            //if (txtBusueda.Text != "")
+            //{
+            //    btnBuscar.Enabled = true;
 
-            }
-            else
-            {
-                btnBuscar.Enabled = false;
+            //}
+            //else
+            //{
+            //    btnBuscar.Enabled = false;
 
-            }
-           
+            //}
+
         }
 
-        private void toolBar1_ButtonClick_1(object sender, ToolBarButtonClickEventArgs e)
-        {
-            switch (toolBar1.Buttons.IndexOf(e.Button))
-            {
-                case 0:
-                    if (existe == 0)
-                    {
-                        cone = new SqlConnection(objConexionPrincipal.getConexion());
-                        //se abre la conexion
-                        cone.Open();
-                        string query = "insert into Sistemas values(@id,@nombre)";  //este es para insetar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
-                        SqlCommand comando = new SqlCommand(query, cone);
-                        comando.Parameters.Clear();
-                        comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text)); //este es para ya modificar 
-                        comando.Parameters.AddWithValue("@nombre", txtNombre.Text);
-
-                        comando.ExecuteNonQuery();//es para verificar los editados
-                        MessageBox.Show("Sistema guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtNombre.Clear();
-                        //txtClave.Clear();
-                        txtBusueda.Focus();
-                        maximo();
-
-                    }
-                    if (existe == 1)
-                    {
-                        cone = new SqlConnection(objConexionPrincipal.getConexion());
-                        //se abre la conexion
-                        cone.Open();
-                        string query = "update Sistemas set id=@id,nombre=@nombre where id=@id";  //este es para modificar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
-                        SqlCommand comando = new SqlCommand(query, cone);
-                        comando.Parameters.Clear();
-                        comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text)); //este es para ya modificar 
-                        comando.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                        comando.ExecuteNonQuery();
-                        MessageBox.Show("Sistema modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //dejar el forms como el inicio
-                        btnBuscar.Enabled = false;
-                        txtNombre.Clear();
-                        txtClave.Clear();
-                        txtBusueda.Focus();
-                    }
-                    break;
-                case 1:
-                    string query1 = "delete from Sistemas where id=@id";
-                    SqlCommand comandoo = new SqlCommand(query1, cone);
-                    comandoo.Parameters.Clear();
-                    comandoo.Parameters.AddWithValue("@id", txtClave.Text);
-                    if (MessageBox.Show("El Sistema sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Stop) == DialogResult.Yes)
-                    {
-                        comandoo.ExecuteNonQuery();
-                        MessageBox.Show("Se ha eliminado el registro", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    txtBusueda.Clear();
-                    limpiar();
-                    maximo();
-                    break;
-            }
-        }
+        
 
         private void toolBuscar_Click(object sender, EventArgs e)
         {
@@ -299,6 +124,65 @@ namespace Migraciones
 
             }
         }
+
+        private void toolNuevo_Click(object sender, EventArgs e)
+        {
+            limpiar();
+            maximo();
+        }
+
+        private void toolGuardar_Click(object sender, EventArgs e)
+        {
+            if (!existe )
+            {
+                cone = new SqlConnection(objConexionPrincipal.getConexion());
+                //se abre la conexion
+                cone.Open();
+                string query = "insert into Sistemas values(@id,@nombre)";  //este es para insetar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
+                SqlCommand comando = new SqlCommand(query, cone);
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text)); //este es para ya modificar 
+                comando.Parameters.AddWithValue("@nombre", txtNombre.Text);
+
+                comando.ExecuteNonQuery();//es para verificar los editados
+                MessageBox.Show("Sistema guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNombre.Clear();
+                //txtClave.Clear();
+                maximo();
+            }
+            if (existe )
+            {
+                cone = new SqlConnection(objConexionPrincipal.getConexion());
+                //se abre la conexion
+                cone.Open();
+                string query = "update Sistemas set id=@id,nombre=@nombre where id=@id";  //este es para modificar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
+                SqlCommand comando = new SqlCommand(query, cone);
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text)); //este es para ya modificar 
+                comando.Parameters.AddWithValue("@nombre", txtNombre.Text);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Sistema modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+            }
+
+        }
+
+        private void toolEliminar_Click(object sender, EventArgs e)
+        {
+            string query1 = "delete from Sistemas where id=@id";
+            SqlCommand comandoo = new SqlCommand(query1, cone);
+            comandoo.Parameters.Clear();
+            comandoo.Parameters.AddWithValue("@id", txtClave.Text);
+            if (MessageBox.Show("El Sistema sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Stop) == DialogResult.Yes)
+            {
+                comandoo.ExecuteNonQuery();
+                MessageBox.Show("Se ha eliminado el registro", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            limpiar();
+            maximo();
+        }
     }
-    
 }
+    
+

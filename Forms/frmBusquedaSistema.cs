@@ -22,7 +22,7 @@ namespace Migraciones.Forms
         private SqlConnection cone;
 
 
-        public DataTable dt = new DataTable();
+        public DataTable dt = new DataTable();//deberian ser privado 
         
         public SqlCommand cmd = new SqlCommand();
         public SqlDataAdapter da = new SqlDataAdapter();
@@ -34,23 +34,30 @@ namespace Migraciones.Forms
             this.CancelButton = btnCancelar;
             cmd.Connection = cone;
             cmd.CommandText = "SELECT id, nombre FROM sistemas";
-            da.SelectCommand = cmd;
-            dgBusqueda.DataSource = dt;
+          
         }
 
         private void txtExpresion_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                buscar();
+                buscar(txtExpresion.Text);
             }
         }
 
-        public void buscar()
+        public void buscar(string expresion)
         {
             try
             {
-                
+                cmd.Parameters.Clear();
+
+                if (!string.IsNullOrEmpty(expresion))//se pone el ! para que devuelva falso y no true
+                {
+                    cmd.CommandText = "SELECT id, nombre FROM Sistemas WHERE id LIKE '%' + '" + @expresion + "' + '%' OR nombre LIKE '%' + '" + @expresion + "' + '%'";//sirve para buscar lo que contenga la expresion em id o nombre
+                    cmd.Parameters.AddWithValue("@expresion",expresion);
+                }
+                da.SelectCommand = cmd;//no se ejecute antes
+                dgBusqueda.DataSource = dt;
                 dt.Clear();
                 da.Fill(dt);
             }
@@ -59,7 +66,7 @@ namespace Migraciones.Forms
                 MessageBox.Show("Error de base de datos: " + err.Message, "Error busqueda", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-           
+     
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

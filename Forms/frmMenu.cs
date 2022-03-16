@@ -27,14 +27,14 @@ namespace Migraciones.Forms
 
         private void sistemasToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmSistemas ventanaSistema = new frmSistemas(this.objConexionPrincipal);
+            ventanaSistema.Show();
 
-            
         }
 
         private void capturaDeSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSistemas ventanaSistema = new frmSistemas(this.objConexionPrincipal);
-            ventanaSistema.Show();
+            
         }
 
         private void frmMenu_Load(object sender, EventArgs e)

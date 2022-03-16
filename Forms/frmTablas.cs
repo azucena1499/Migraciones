@@ -16,7 +16,7 @@ namespace Migraciones.Forms
     {
         private Clases.Conexion objConexionPrincipal;
         private SqlConnection cone;
-        private int existe = 0;
+        private Boolean existe;
         public frmTablas(Clases.Conexion objConexionPrincipal)
         {
             this.objConexionPrincipal = objConexionPrincipal;
@@ -43,43 +43,7 @@ namespace Migraciones.Forms
 
         private void toolBar1_ButtonClick(object sender, ToolBarButtonClickEventArgs e)
         {
-            switch (toolBar1.Buttons.IndexOf(e.Button))
-            {
-                case 0:
-                    //if (existe == 0)
-                    
-                        cone = new SqlConnection(objConexionPrincipal.getConexion());
-                        cone.Open();
-                        string query = "insert into Tablas values(@id,@descripcion)";                                                                                                            //asigno a comando el sqlcommand
-                        SqlCommand comando = new SqlCommand(query, cone);
-                        comando.Parameters.Clear();
-                        comando.Parameters.AddWithValue("@id", txtclave.Text);
-                        comando.Parameters.AddWithValue("@descripcion", txtdescripcion.Text);
-                        comando.ExecuteNonQuery();//es para verificar los editados
-                        MessageBox.Show(" Guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtclave.Clear();
-                        txtdescripcion.Clear();
-                        maximo();
-
-                    
-                    break;
-                case 1:
-                    string query1 = "delete from Consultas where id=@id";
-                    SqlCommand comandoo = new SqlCommand(query1, cone);
-                    comandoo.Parameters.Clear();
-                    comandoo.Parameters.AddWithValue("@id", txtclave.Text);
-                    if (MessageBox.Show("El registro sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Stop) == DialogResult.Yes)
-                    {
-                        comandoo.ExecuteNonQuery();
-                        MessageBox.Show("Se ha eliminado el registro", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    txtdescripcion.Clear();
-                    txtclave.Clear();
-                    maximo();
-                    break;
-
-            }
+            
         }
      
 
@@ -93,13 +57,84 @@ namespace Migraciones.Forms
         {
             if ( !string.IsNullOrEmpty(txtdescripcion.Text)  && txtdescripcion.Text.Trim() != "")
             {
-                tlbguardar.Enabled = true;
+                toolGuardar.Enabled = true;
             }
             else
             {
-                tlbguardar.Enabled = false;
+                toolGuardar.Enabled = false;
 
             }
+        }
+
+        private void toolBuscar_Click(object sender, EventArgs e)
+        {
+            Migraciones.Forms.frmBusquedaTabla frm = new Migraciones.Forms.frmBusquedaTabla(objConexionPrincipal);
+            frm.ShowDialog();
+
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                txtclave.Focus();
+                txtclave.Text = frm.dgBusquedaT.Rows[frm.dgBusquedaT.CurrentRow.Index].Cells[0].Value.ToString();
+                txtdescripcion.Text = frm.dgBusquedaT.Rows[frm.dgBusquedaT.CurrentRow.Index].Cells[1].Value.ToString();
+                existe = true;
+            }
+            else
+            {
+                existe = false;
+
+            }
+        }
+
+        private void toolGuardar_Click(object sender, EventArgs e)
+        {
+            if (!existe)
+            {
+                cone = new SqlConnection(objConexionPrincipal.getConexion());
+                //se abre la conexion
+                cone.Open();
+                string query = "insert into Tablas values(@id,@descripcion)";  //este es para insetar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
+                SqlCommand comando = new SqlCommand(query, cone);
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id", int.Parse(txtclave.Text)); //este es para ya modificar 
+                comando.Parameters.AddWithValue("@descripcion", txtdescripcion.Text);
+
+                comando.ExecuteNonQuery();//es para verificar los editados
+                MessageBox.Show("Registro guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtdescripcion.Clear();
+                //txtClave.Clear();
+                maximo();
+            }
+            if (existe)
+            {
+                cone = new SqlConnection(objConexionPrincipal.getConexion());
+                //se abre la conexion
+                cone.Open();
+                string query = "update Tablas set id=@id,descripcion=@descripcion where id=@id";  //este es para modificar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
+                SqlCommand comando = new SqlCommand(query, cone);
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id", int.Parse(txtclave.Text)); //este es para ya modificar 
+                comando.Parameters.AddWithValue("@descripcion", txtdescripcion.Text);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Registro modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
+
+        private void toolEliminar_Click(object sender, EventArgs e)
+        {
+            string query1 = "delete from Tablas where id=@id";
+            SqlCommand comandoo = new SqlCommand(query1, cone);
+            comandoo.Parameters.Clear();
+            comandoo.Parameters.AddWithValue("@id", txtclave.Text);
+            if (MessageBox.Show("El registro sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Stop) == DialogResult.Yes)
+            {
+                comandoo.ExecuteNonQuery();
+                MessageBox.Show("Se ha eliminado el registro", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            txtdescripcion.Clear();
+            txtclave.Clear();
+            maximo();
         }
     }
 }

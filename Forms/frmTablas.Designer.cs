@@ -35,10 +35,13 @@ namespace Migraciones.Forms
             this.lbldesc = new System.Windows.Forms.Label();
             this.txtclave = new System.Windows.Forms.TextBox();
             this.txtdescripcion = new System.Windows.Forms.TextBox();
-            this.toolBar1 = new System.Windows.Forms.ToolBar();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.tlbguardar = new System.Windows.Forms.ToolBarButton();
-            this.tbteliminar = new System.Windows.Forms.ToolBarButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolGuardar = new System.Windows.Forms.ToolStripButton();
+            this.toolBuscar = new System.Windows.Forms.ToolStripButton();
+            this.toolEliminar = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblclave
@@ -75,20 +78,6 @@ namespace Migraciones.Forms
             this.txtdescripcion.TabIndex = 3;
             this.txtdescripcion.TextChanged += new System.EventHandler(this.txtdescripcion_TextChanged);
             // 
-            // toolBar1
-            // 
-            this.toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
-            this.tlbguardar,
-            this.tbteliminar});
-            this.toolBar1.DropDownArrows = true;
-            this.toolBar1.ImageList = this.imageList1;
-            this.toolBar1.Location = new System.Drawing.Point(0, 0);
-            this.toolBar1.Name = "toolBar1";
-            this.toolBar1.ShowToolTips = true;
-            this.toolBar1.Size = new System.Drawing.Size(394, 28);
-            this.toolBar1.TabIndex = 4;
-            this.toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.toolBar1_ButtonClick);
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -96,24 +85,70 @@ namespace Migraciones.Forms
             this.imageList1.Images.SetKeyName(0, "1447201522_save.png");
             this.imageList1.Images.SetKeyName(1, "1447201818_trash.png");
             // 
-            // tlbguardar
+            // toolStrip1
             // 
-            this.tlbguardar.Enabled = false;
-            this.tlbguardar.ImageIndex = 0;
-            this.tlbguardar.Name = "tlbguardar";
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolNuevo,
+            this.toolGuardar,
+            this.toolBuscar,
+            this.toolEliminar});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(394, 39);
+            this.toolStrip1.TabIndex = 17;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // tbteliminar
+            // toolNuevo
             // 
-            this.tbteliminar.Enabled = false;
-            this.tbteliminar.ImageIndex = 1;
-            this.tbteliminar.Name = "tbteliminar";
+            this.toolNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolNuevo.Image = ((System.Drawing.Image)(resources.GetObject("toolNuevo.Image")));
+            this.toolNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolNuevo.Name = "toolNuevo";
+            this.toolNuevo.Size = new System.Drawing.Size(36, 36);
+            this.toolNuevo.Text = "Nuevo";
+            // 
+            // toolGuardar
+            // 
+            this.toolGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolGuardar.Image = ((System.Drawing.Image)(resources.GetObject("toolGuardar.Image")));
+            this.toolGuardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolGuardar.Name = "toolGuardar";
+            this.toolGuardar.Size = new System.Drawing.Size(36, 36);
+            this.toolGuardar.Text = "toolBar";
+            this.toolGuardar.Click += new System.EventHandler(this.toolGuardar_Click);
+            // 
+            // toolBuscar
+            // 
+            this.toolBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolBuscar.Image = ((System.Drawing.Image)(resources.GetObject("toolBuscar.Image")));
+            this.toolBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolBuscar.Name = "toolBuscar";
+            this.toolBuscar.Size = new System.Drawing.Size(36, 36);
+            this.toolBuscar.Text = "toolStripButton2";
+            this.toolBuscar.ToolTipText = "Buscar";
+            this.toolBuscar.Click += new System.EventHandler(this.toolBuscar_Click);
+            // 
+            // toolEliminar
+            // 
+            this.toolEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolEliminar.Image = ((System.Drawing.Image)(resources.GetObject("toolEliminar.Image")));
+            this.toolEliminar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolEliminar.Name = "toolEliminar";
+            this.toolEliminar.Size = new System.Drawing.Size(36, 36);
+            this.toolEliminar.Text = "toolEliminar";
+            this.toolEliminar.ToolTipText = "toolEliminar";
+            this.toolEliminar.Click += new System.EventHandler(this.toolEliminar_Click);
             // 
             // frmTablas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(394, 225);
-            this.Controls.Add(this.toolBar1);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.txtdescripcion);
             this.Controls.Add(this.txtclave);
             this.Controls.Add(this.lbldesc);
@@ -124,6 +159,8 @@ namespace Migraciones.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Tablas";
             this.Load += new System.EventHandler(this.frmTablas_Load);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,9 +172,11 @@ namespace Migraciones.Forms
         private System.Windows.Forms.Label lbldesc;
         private System.Windows.Forms.TextBox txtclave;
         private System.Windows.Forms.TextBox txtdescripcion;
-        private System.Windows.Forms.ToolBar toolBar1;
-        private System.Windows.Forms.ToolBarButton tlbguardar;
-        private System.Windows.Forms.ToolBarButton tbteliminar;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolNuevo;
+        private System.Windows.Forms.ToolStripButton toolGuardar;
+        private System.Windows.Forms.ToolStripButton toolBuscar;
+        private System.Windows.Forms.ToolStripButton toolEliminar;
     }
 }

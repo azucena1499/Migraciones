@@ -15,7 +15,7 @@ namespace Migraciones.Forms
     {
         private Clases.Conexion objConexionPrincipal;
         private SqlConnection cone;
-        private int existe = 0;
+        private Boolean existe;
 
         public frmConsultas(Clases.Conexion objConexionPrincipal)
         {
@@ -92,7 +92,7 @@ namespace Migraciones.Forms
             txtConsulta.Focus();
             cboxSistema.ResetText();
             cboxTabla.ResetText();
-            Tbtneliminar.Enabled = false;
+            toolEliminar.Enabled = false;
         }
         private void frmConsultas_Load(object sender, EventArgs e)
         {
@@ -104,61 +104,105 @@ namespace Migraciones.Forms
 
         private void toolBar1_ButtonClick(object sender, ToolBarButtonClickEventArgs e)
         {
-            switch (toolBar1.Buttons.IndexOf(e.Button))
-            {
-                case 0:
-                    if (existe == 0)
-                    {
-                        cone = new SqlConnection(objConexionPrincipal.getConexion());
-                        //se abre la conexion
-                        cone.Open();
-                        string query = "insert into Consultas values(@id_Sistema,@id_Tabla,@descripcion,@script)";  //este es para insetar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
-                        SqlCommand comando = new SqlCommand(query, cone);
-                        comando.Parameters.Clear();
-                        //comando.Parameters.AddWithValue("@id", txtClave.Text); //este es para ya modificar 
-                        comando.Parameters.AddWithValue("@id_Sistema",cboxSistema.SelectedValue);
-                        comando.Parameters.AddWithValue("@id_Tabla", cboxTabla.SelectedValue); //este es para ya modificar 
-                        comando.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
-                        comando.Parameters.AddWithValue("@script", txtConsulta.Text);
-                        comando.ExecuteNonQuery();//es para verificar los editados
-                        MessageBox.Show(" Guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtConsulta.Clear();
-                        txtDescripcion.Clear();
-                        cboxSistema.ResetText();
-                        cboxTabla.ResetText();
-                        maximo();
+            //switch (toolBar1.Buttons.IndexOf(e.Button))
+            //{
+            //    //case 0:
+                //   
+                //    break;
+                //case 1:
+                //    string query1 = "delete from Consultas where id=@id";
+                //    SqlCommand comandoo = new SqlCommand(query1, cone);
+                //    comandoo.Parameters.Clear();
+                //    comandoo.Parameters.AddWithValue("@id", txtClave.Text);
+                //    if (MessageBox.Show("El registro sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
+                //        MessageBoxIcon.Stop) == DialogResult.Yes)
+                //    {
+                //        comandoo.ExecuteNonQuery();
+                //        MessageBox.Show("Se ha eliminado el registro", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    }
+                //    limpiar();
+                //    maximo();
+                //    break;
 
-                    }
-                    break;
-                case 1:
-                    string query1 = "delete from Consultas where id=@id";
-                    SqlCommand comandoo = new SqlCommand(query1, cone);
-                    comandoo.Parameters.Clear();
-                    comandoo.Parameters.AddWithValue("@id", txtClave.Text);
-                    if (MessageBox.Show("El registro sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Stop) == DialogResult.Yes)
-                    {
-                        comandoo.ExecuteNonQuery();
-                        MessageBox.Show("Se ha eliminado el registro", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    limpiar();
-                    maximo();
-                    break;
-
-            }
+            //}
         }
 
         private void txtDescripcion_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtDescripcion.Text) && !string.IsNullOrEmpty(txtConsulta.Text) && txtDescripcion.Text.Trim() != "" && txtConsulta.Text.Trim() != "")
             {
-                tbtGuardar.Enabled = true;
+                toolGuardar.Enabled = true;
             }
             else
             {
-                tbtGuardar.Enabled = false;
+                toolGuardar.Enabled = false;
 
             }
         }
+
+        private void toolBuscar_Click(object sender, EventArgs e)
+        {
+            Migraciones.Forms.frmBusquedaConsulta frm = new Migraciones.Forms.frmBusquedaConsulta(objConexionPrincipal);
+            frm.ShowDialog();
+
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                txtClave.Focus();
+                txtClave.Text = frm.dgBusquedaConsulta.Rows[frm.dgBusquedaConsulta.CurrentRow.Index].Cells[0].Value.ToString();
+                cboxSistema.SelectedValue = frm.dgBusquedaConsulta.Rows[frm.dgBusquedaConsulta.CurrentRow.Index].Cells[1].Value.ToString();
+                cboxTabla.SelectedValue = frm.dgBusquedaConsulta.Rows[frm.dgBusquedaConsulta.CurrentRow.Index].Cells[2].Value.ToString();
+                txtDescripcion.Text = frm.dgBusquedaConsulta.Rows[frm.dgBusquedaConsulta.CurrentRow.Index].Cells[3].Value.ToString();
+                txtConsulta.Text = frm.dgBusquedaConsulta.Rows[frm.dgBusquedaConsulta.CurrentRow.Index].Cells[4].Value.ToString();
+
+                existe = true;
+            }
+            else
+            {
+                existe = false;
+
+            }
+        }
+
+        private void toolGuardar_Click(object sender, EventArgs e)
+        {
+            if (!existe)
+            {
+                cone = new SqlConnection(objConexionPrincipal.getConexion());
+                //se abre la conexion
+                cone.Open();
+                 string query = "insert into Consultas values(@id_Sistema,@id_Tabla,@descripcion,@script)";  //este es para insetar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
+                SqlCommand comando = new SqlCommand(query, cone);
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id", txtClave.Text);
+                comando.Parameters.AddWithValue("@id_Sistema", cboxSistema.SelectedValue);
+                comando.Parameters.AddWithValue("@id_Tabla", cboxTabla.SelectedValue);
+                comando.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
+                comando.Parameters.AddWithValue("@script", txtConsulta.Text);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Sistema guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //txtClave.Clear();
+                maximo();
+            }
+            if (existe)
+            {
+                cone = new SqlConnection(objConexionPrincipal.getConexion());
+                //se abre la conexion
+                cone.Open();
+                string query = "update Consultas set id_Sistema=@id_Sistema,id_Tabla=@id_Tabla,descripcion=@descripcion,script=@script where id=@id";  //este es para modificar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
+                SqlCommand comando = new SqlCommand(query, cone);
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text));
+                comando.Parameters.AddWithValue("@id_Sistema", cboxSistema.SelectedValue);
+                comando.Parameters.AddWithValue("@id_Tabla", cboxTabla.SelectedValue); //este es para ya modificar 
+                comando.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
+                comando.Parameters.AddWithValue("@script", txtConsulta.Text);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Sistema modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+            }
+        }
+        
     }
 }

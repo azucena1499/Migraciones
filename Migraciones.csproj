@@ -47,11 +47,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Conexion.cs" />
+    <Compile Include="Forms\frmBusquedaConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBusquedaConsulta.Designer.cs">
+      <DependentUpon>frmBusquedaConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmBusquedaSistema.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmBusquedaSistema.Designer.cs">
       <DependentUpon>frmBusquedaSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBusquedaTabla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBusquedaTabla.Designer.cs">
+      <DependentUpon>frmBusquedaTabla.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmConexion.cs">
       <SubType>Form</SubType>
@@ -85,8 +97,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\frmBusquedaConsulta.resx">
+      <DependentUpon>frmBusquedaConsulta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmBusquedaSistema.resx">
       <DependentUpon>frmBusquedaSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBusquedaTabla.resx">
+      <DependentUpon>frmBusquedaTabla.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmConexion.resx">
       <DependentUpon>frmConexion.cs</DependentUpon>

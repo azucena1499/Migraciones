@@ -33,21 +33,17 @@ namespace Migraciones
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSistemas));
             this.lblClave = new System.Windows.Forms.Label();
             this.txtClave = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtBusueda = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolGuardar = new System.Windows.Forms.ToolStripButton();
             this.toolBuscar = new System.Windows.Forms.ToolStripButton();
+            this.toolEliminar = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,20 +63,6 @@ namespace Migraciones
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(60, 20);
             this.txtClave.TabIndex = 1;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscar.Enabled = false;
-            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(112, 24);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(38, 28);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtNombre
             // 
@@ -119,36 +101,6 @@ namespace Migraciones
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sistema";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.txtBusueda);
-            this.groupBox2.Controls.Add(this.btnBuscar);
-            this.groupBox2.Location = new System.Drawing.Point(414, 60);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(205, 70);
-            this.groupBox2.TabIndex = 13;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Busqueda";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Clave";
-            // 
-            // txtBusueda
-            // 
-            this.txtBusueda.Location = new System.Drawing.Point(46, 29);
-            this.txtBusueda.Name = "txtBusueda";
-            this.txtBusueda.Size = new System.Drawing.Size(60, 20);
-            this.txtBusueda.TabIndex = 5;
-            this.txtBusueda.TextChanged += new System.EventHandler(this.txtBusueda_TextChanged);
-            this.txtBusueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusueda_KeyPress);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Location = new System.Drawing.Point(0, 186);
@@ -162,7 +114,8 @@ namespace Migraciones
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolNuevo,
             this.toolGuardar,
-            this.toolBuscar});
+            this.toolBuscar,
+            this.toolEliminar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(698, 39);
@@ -178,6 +131,7 @@ namespace Migraciones
             this.toolNuevo.Name = "toolNuevo";
             this.toolNuevo.Size = new System.Drawing.Size(36, 36);
             this.toolNuevo.Text = "Nuevo";
+            this.toolNuevo.Click += new System.EventHandler(this.toolNuevo_Click);
             // 
             // toolGuardar
             // 
@@ -188,6 +142,7 @@ namespace Migraciones
             this.toolGuardar.Name = "toolGuardar";
             this.toolGuardar.Size = new System.Drawing.Size(36, 36);
             this.toolGuardar.Text = "toolBar";
+            this.toolGuardar.Click += new System.EventHandler(this.toolGuardar_Click);
             // 
             // toolBuscar
             // 
@@ -201,6 +156,18 @@ namespace Migraciones
             this.toolBuscar.ToolTipText = "Buscar";
             this.toolBuscar.Click += new System.EventHandler(this.toolBuscar_Click);
             // 
+            // toolEliminar
+            // 
+            this.toolEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolEliminar.Image = ((System.Drawing.Image)(resources.GetObject("toolEliminar.Image")));
+            this.toolEliminar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolEliminar.Name = "toolEliminar";
+            this.toolEliminar.Size = new System.Drawing.Size(36, 36);
+            this.toolEliminar.Text = "toolEliminar";
+            this.toolEliminar.ToolTipText = "toolEliminar";
+            this.toolEliminar.Click += new System.EventHandler(this.toolEliminar_Click);
+            // 
             // frmSistemas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,7 +175,6 @@ namespace Migraciones
             this.ClientSize = new System.Drawing.Size(698, 208);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -218,8 +184,6 @@ namespace Migraciones
             this.Load += new System.EventHandler(this.frmSistemas_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -231,19 +195,16 @@ namespace Migraciones
 
         private System.Windows.Forms.Label lblClave;
         private System.Windows.Forms.TextBox txtClave;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtBusueda;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolGuardar;
         private System.Windows.Forms.ToolStripButton toolBuscar;
         private System.Windows.Forms.ToolStripButton toolNuevo;
+        private System.Windows.Forms.ToolStripButton toolEliminar;
     }
 }
 

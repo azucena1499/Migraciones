@@ -32,7 +32,6 @@ namespace Migraciones.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sistemasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.capturaDeSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tablasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conexionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,20 +55,11 @@ namespace Migraciones.Forms
             // 
             // sistemasToolStripMenuItem
             // 
-            this.sistemasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.capturaDeSistemaToolStripMenuItem});
             this.sistemasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sistemasToolStripMenuItem.Image")));
             this.sistemasToolStripMenuItem.Name = "sistemasToolStripMenuItem";
             this.sistemasToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.sistemasToolStripMenuItem.Text = "Sistemas";
             this.sistemasToolStripMenuItem.Click += new System.EventHandler(this.sistemasToolStripMenuItem_Click);
-            // 
-            // capturaDeSistemaToolStripMenuItem
-            // 
-            this.capturaDeSistemaToolStripMenuItem.Name = "capturaDeSistemaToolStripMenuItem";
-            this.capturaDeSistemaToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.capturaDeSistemaToolStripMenuItem.Text = "Captura de sistema";
-            this.capturaDeSistemaToolStripMenuItem.Click += new System.EventHandler(this.capturaDeSistemaToolStripMenuItem_Click);
             // 
             // tablasToolStripMenuItem
             // 
@@ -130,6 +120,5 @@ namespace Migraciones.Forms
         private System.Windows.Forms.ToolStripMenuItem conexionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem capturaDeSistemaToolStripMenuItem;
     }
 }

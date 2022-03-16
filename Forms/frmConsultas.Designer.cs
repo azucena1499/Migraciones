@@ -41,10 +41,13 @@ namespace Migraciones.Forms
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtConsulta = new System.Windows.Forms.TextBox();
-            this.toolBar1 = new System.Windows.Forms.ToolBar();
-            this.tbtGuardar = new System.Windows.Forms.ToolBarButton();
-            this.Tbtneliminar = new System.Windows.Forms.ToolBarButton();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolGuardar = new System.Windows.Forms.ToolStripButton();
+            this.toolBuscar = new System.Windows.Forms.ToolStripButton();
+            this.toolEliminar = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblClaveS
@@ -134,34 +137,6 @@ namespace Migraciones.Forms
             this.txtConsulta.Size = new System.Drawing.Size(296, 74);
             this.txtConsulta.TabIndex = 17;
             // 
-            // toolBar1
-            // 
-            this.toolBar1.AutoSize = false;
-            this.toolBar1.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
-            this.tbtGuardar,
-            this.Tbtneliminar});
-            this.toolBar1.ButtonSize = new System.Drawing.Size(50, 50);
-            this.toolBar1.DropDownArrows = true;
-            this.toolBar1.ImageList = this.imageList1;
-            this.toolBar1.Location = new System.Drawing.Point(0, 0);
-            this.toolBar1.Name = "toolBar1";
-            this.toolBar1.ShowToolTips = true;
-            this.toolBar1.Size = new System.Drawing.Size(679, 39);
-            this.toolBar1.TabIndex = 18;
-            this.toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.toolBar1_ButtonClick);
-            // 
-            // tbtGuardar
-            // 
-            this.tbtGuardar.Enabled = false;
-            this.tbtGuardar.ImageIndex = 0;
-            this.tbtGuardar.Name = "toolBarButton1";
-            // 
-            // Tbtneliminar
-            // 
-            this.Tbtneliminar.Enabled = false;
-            this.Tbtneliminar.ImageIndex = 1;
-            this.Tbtneliminar.Name = "Tbtneliminar";
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -169,12 +144,69 @@ namespace Migraciones.Forms
             this.imageList1.Images.SetKeyName(0, "1447201081_save.png");
             this.imageList1.Images.SetKeyName(1, "1447201818_trash.png");
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolNuevo,
+            this.toolGuardar,
+            this.toolBuscar,
+            this.toolEliminar});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(679, 39);
+            this.toolStrip1.TabIndex = 18;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolNuevo
+            // 
+            this.toolNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolNuevo.Image = ((System.Drawing.Image)(resources.GetObject("toolNuevo.Image")));
+            this.toolNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolNuevo.Name = "toolNuevo";
+            this.toolNuevo.Size = new System.Drawing.Size(36, 36);
+            this.toolNuevo.Text = "Nuevo";
+            // 
+            // toolGuardar
+            // 
+            this.toolGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolGuardar.Image = ((System.Drawing.Image)(resources.GetObject("toolGuardar.Image")));
+            this.toolGuardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolGuardar.Name = "toolGuardar";
+            this.toolGuardar.Size = new System.Drawing.Size(36, 36);
+            this.toolGuardar.Text = "toolBar";
+            this.toolGuardar.Click += new System.EventHandler(this.toolGuardar_Click);
+            // 
+            // toolBuscar
+            // 
+            this.toolBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolBuscar.Image = ((System.Drawing.Image)(resources.GetObject("toolBuscar.Image")));
+            this.toolBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolBuscar.Name = "toolBuscar";
+            this.toolBuscar.Size = new System.Drawing.Size(36, 36);
+            this.toolBuscar.Text = "toolStripButton2";
+            this.toolBuscar.ToolTipText = "Buscar";
+            this.toolBuscar.Click += new System.EventHandler(this.toolBuscar_Click);
+            // 
+            // toolEliminar
+            // 
+            this.toolEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolEliminar.Image = ((System.Drawing.Image)(resources.GetObject("toolEliminar.Image")));
+            this.toolEliminar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolEliminar.Name = "toolEliminar";
+            this.toolEliminar.Size = new System.Drawing.Size(36, 36);
+            this.toolEliminar.Text = "toolEliminar";
+            this.toolEliminar.ToolTipText = "toolEliminar";
+            // 
             // frmConsultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 361);
-            this.Controls.Add(this.toolBar1);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.txtConsulta);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblDescripcion);
@@ -191,6 +223,8 @@ namespace Migraciones.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultas";
             this.Load += new System.EventHandler(this.frmConsultas_Load);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,9 +242,12 @@ namespace Migraciones.Forms
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtConsulta;
-        private System.Windows.Forms.ToolBar toolBar1;
-        public System.Windows.Forms.ToolBarButton Tbtneliminar;
         private System.Windows.Forms.ImageList imageList1;
         public System.Windows.Forms.ToolBarButton tbtGuardar;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolNuevo;
+        private System.Windows.Forms.ToolStripButton toolGuardar;
+        private System.Windows.Forms.ToolStripButton toolBuscar;
+        private System.Windows.Forms.ToolStripButton toolEliminar;
     }
 }
