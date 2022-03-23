@@ -36,21 +36,19 @@ namespace Migraciones
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolGuardar = new System.Windows.Forms.ToolStripButton();
             this.toolBuscar = new System.Windows.Forms.ToolStripButton();
             this.toolEliminar = new System.Windows.Forms.ToolStripButton();
-            this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblClave
             // 
             this.lblClave.AutoSize = true;
-            this.lblClave.Location = new System.Drawing.Point(6, 37);
+            this.lblClave.Location = new System.Drawing.Point(24, 68);
             this.lblClave.Name = "lblClave";
             this.lblClave.Size = new System.Drawing.Size(34, 13);
             this.lblClave.TabIndex = 0;
@@ -59,14 +57,14 @@ namespace Migraciones
             // txtClave
             // 
             this.txtClave.Enabled = false;
-            this.txtClave.Location = new System.Drawing.Point(53, 34);
+            this.txtClave.Location = new System.Drawing.Point(81, 65);
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(60, 20);
             this.txtClave.TabIndex = 1;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(53, 69);
+            this.txtNombre.Location = new System.Drawing.Point(81, 100);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(276, 20);
             this.txtNombre.TabIndex = 4;
@@ -75,7 +73,7 @@ namespace Migraciones
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(1, 72);
+            this.lblNombre.Location = new System.Drawing.Point(24, 103);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 3;
@@ -88,24 +86,11 @@ namespace Migraciones
             this.imageList1.Images.SetKeyName(0, "1447201522_save.png");
             this.imageList1.Images.SetKeyName(1, "gui_eraser_icon_157160.png");
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Controls.Add(this.lblClave);
-            this.groupBox1.Controls.Add(this.txtClave);
-            this.groupBox1.Controls.Add(this.lblNombre);
-            this.groupBox1.Location = new System.Drawing.Point(12, 60);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(356, 108);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Sistema";
-            // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 186);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 137);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(698, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(393, 22);
             this.statusStrip1.TabIndex = 15;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -118,7 +103,7 @@ namespace Migraciones
             this.toolEliminar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(698, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(393, 39);
             this.toolStrip1.TabIndex = 16;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -172,18 +157,19 @@ namespace Migraciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 208);
+            this.ClientSize = new System.Drawing.Size(393, 159);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.lblClave);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.txtClave);
+            this.Controls.Add(this.lblNombre);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSistemas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Captura de Sistemas";
             this.Load += new System.EventHandler(this.frmSistemas_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -198,7 +184,6 @@ namespace Migraciones
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolGuardar;

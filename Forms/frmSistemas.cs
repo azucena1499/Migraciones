@@ -54,26 +54,33 @@ namespace Migraciones
 
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            cone = new SqlConnection(objConexionPrincipal.getConexion());
-            //se abre la conexion
-            cone.Open();
-            string query = "update Sistemas set estatus=0 where id=id";
-            SqlCommand comando = new SqlCommand(query, cone);
-            comando.Parameters.Clear();
-            comando.Parameters.AddWithValue("@id", txtClave.Text);
-            if (MessageBox.Show("El Sistema se dara de baja,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Stop) == DialogResult.Yes)
-            {
-                comando.ExecuteNonQuery();
+        //private void btnEliminar_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        cone = new SqlConnection(objConexionPrincipal.getConexion());
+        //        //se abre la conexion
+        //        cone.Open();
+        //        string query = "update Sistemas set estatus=0 where id=id";
+        //        SqlCommand comando = new SqlCommand(query, cone);
+        //        comando.Parameters.Clear();
+        //        comando.Parameters.AddWithValue("@id", txtClave.Text);
+        //        if (MessageBox.Show("El Sistema se dara de baja,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
+        //            MessageBoxIcon.Stop) == DialogResult.Yes)
+        //        {
+        //            comando.ExecuteNonQuery();
 
-                MessageBox.Show("Cliente eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            limpiar();
-        }
+        //            MessageBox.Show("Cliente eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        }
+        //        limpiar();
+        //    }
 
-      
+        //    catch (SqlException err)
+        //    {
+        //        MessageBox.Show("Error de base de datos: " + err.Message, "Error busqueda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtClave.Text) && !string.IsNullOrEmpty(txtNombre.Text) && txtClave.Text.Trim() != "" && txtNombre.Text.Trim() != "")
@@ -87,7 +94,7 @@ namespace Migraciones
             }
         }
 
-       
+
 
         private void txtBusueda_TextChanged(object sender, EventArgs e)
         {
@@ -104,7 +111,7 @@ namespace Migraciones
 
         }
 
-        
+
 
         private void toolBuscar_Click(object sender, EventArgs e)
         {
@@ -133,56 +140,69 @@ namespace Migraciones
 
         private void toolGuardar_Click(object sender, EventArgs e)
         {
-            if (!existe )
+            try
             {
-                cone = new SqlConnection(objConexionPrincipal.getConexion());
-                //se abre la conexion
-                cone.Open();
-                string query = "insert into Sistemas values(@id,@nombre)";  //este es para insetar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
-                SqlCommand comando = new SqlCommand(query, cone);
-                comando.Parameters.Clear();
-                comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text)); //este es para ya modificar 
-                comando.Parameters.AddWithValue("@nombre", txtNombre.Text);
+                if (!existe)
+                {
+                    cone = new SqlConnection(objConexionPrincipal.getConexion());
+                    //se abre la conexion
+                    cone.Open();
+                    string query = "insert into Sistemas values(@id,@nombre)";  //este es para insetar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
+                    SqlCommand comando = new SqlCommand(query, cone);
+                    comando.Parameters.Clear();
+                    comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text)); //este es para ya modificar 
+                    comando.Parameters.AddWithValue("@nombre", txtNombre.Text);
 
-                comando.ExecuteNonQuery();//es para verificar los editados
-                MessageBox.Show("Sistema guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtNombre.Clear();
-                //txtClave.Clear();
-                maximo();
+                    comando.ExecuteNonQuery();//es para verificar los editados
+                    MessageBox.Show("Sistema guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNombre.Clear();
+                    //txtClave.Clear();
+                }
+                if (existe)
+                {
+                    cone = new SqlConnection(objConexionPrincipal.getConexion());
+                    //se abre la conexion
+                    cone.Open();
+                    string query = "update Sistemas set id=@id,nombre=@nombre where id=@id";  //este es para modificar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
+                    SqlCommand comando = new SqlCommand(query, cone);
+                    comando.Parameters.Clear();
+                    comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text)); //este es para ya modificar 
+                    comando.Parameters.AddWithValue("@nombre", txtNombre.Text);
+                    comando.ExecuteNonQuery();
+                    MessageBox.Show("Sistema modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
             }
-            if (existe )
+            catch (SqlException err)
             {
-                cone = new SqlConnection(objConexionPrincipal.getConexion());
-                //se abre la conexion
-                cone.Open();
-                string query = "update Sistemas set id=@id,nombre=@nombre where id=@id";  //este es para modificar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
-                SqlCommand comando = new SqlCommand(query, cone);
-                comando.Parameters.Clear();
-                comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text)); //este es para ya modificar 
-                comando.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Sistema modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+                MessageBox.Show("Error en Sistema: " + err.Message, "Error Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void toolEliminar_Click(object sender, EventArgs e)
         {
-            string query1 = "delete from Sistemas where id=@id";
-            SqlCommand comandoo = new SqlCommand(query1, cone);
-            comandoo.Parameters.Clear();
-            comandoo.Parameters.AddWithValue("@id", txtClave.Text);
-            if (MessageBox.Show("El Sistema sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Stop) == DialogResult.Yes)
+            try
             {
-                comandoo.ExecuteNonQuery();
-                MessageBox.Show("Se ha eliminado el registro", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string query1 = "delete from Sistemas where id=@id";
+                SqlCommand comandoo = new SqlCommand(query1, cone);
+                comandoo.Parameters.Clear();
+                comandoo.Parameters.AddWithValue("@id", txtClave.Text);
+                if (MessageBox.Show("El Sistema sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Stop) == DialogResult.Yes)
+                {
+                    comandoo.ExecuteNonQuery();
+                    MessageBox.Show("Se ha eliminado el registro", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                limpiar();
+                maximo();
             }
-            limpiar();
-            maximo();
+            catch (SqlException err)
+            {
+                MessageBox.Show("Error en consulta: " + err.Message, "Error Consulta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
-    
+        
+ 
 

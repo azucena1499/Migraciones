@@ -40,6 +40,7 @@ namespace Migraciones.Forms
             this.idTabla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Script = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBusquedaConsulta)).BeginInit();
             this.SuspendLayout();
@@ -73,18 +74,18 @@ namespace Migraciones.Forms
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(707, 415);
+            this.btnCancelar.Location = new System.Drawing.Point(725, 395);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 30);
             this.btnCancelar.TabIndex = 22;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(626, 415);
+            this.btnAceptar.Location = new System.Drawing.Point(644, 395);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(75, 30);
             this.btnAceptar.TabIndex = 21;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -139,22 +140,33 @@ namespace Migraciones.Forms
             this.Script.Name = "Script";
             this.Script.Width = 150;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.TabIndex = 24;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
             // frmBusquedaConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dgBusquedaConsulta);
             this.Name = "frmBusquedaConsulta";
-            this.Text = "frmBusquedaConsulta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Busqueda Consulta";
             this.Load += new System.EventHandler(this.frmBusquedaConsulta_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBusquedaConsulta)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -171,5 +183,6 @@ namespace Migraciones.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn idTabla;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Script;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }

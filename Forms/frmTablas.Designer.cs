@@ -41,13 +41,14 @@ namespace Migraciones.Forms
             this.toolGuardar = new System.Windows.Forms.ToolStripButton();
             this.toolBuscar = new System.Windows.Forms.ToolStripButton();
             this.toolEliminar = new System.Windows.Forms.ToolStripButton();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblclave
             // 
             this.lblclave.AutoSize = true;
-            this.lblclave.Location = new System.Drawing.Point(40, 64);
+            this.lblclave.Location = new System.Drawing.Point(20, 63);
             this.lblclave.Name = "lblclave";
             this.lblclave.Size = new System.Drawing.Size(34, 13);
             this.lblclave.TabIndex = 0;
@@ -56,7 +57,7 @@ namespace Migraciones.Forms
             // lbldesc
             // 
             this.lbldesc.AutoSize = true;
-            this.lbldesc.Location = new System.Drawing.Point(134, 64);
+            this.lbldesc.Location = new System.Drawing.Point(20, 101);
             this.lbldesc.Name = "lbldesc";
             this.lbldesc.Size = new System.Drawing.Size(63, 13);
             this.lbldesc.TabIndex = 1;
@@ -65,16 +66,16 @@ namespace Migraciones.Forms
             // txtclave
             // 
             this.txtclave.Enabled = false;
-            this.txtclave.Location = new System.Drawing.Point(29, 80);
+            this.txtclave.Location = new System.Drawing.Point(89, 59);
             this.txtclave.Name = "txtclave";
             this.txtclave.Size = new System.Drawing.Size(54, 20);
             this.txtclave.TabIndex = 2;
             // 
             // txtdescripcion
             // 
-            this.txtdescripcion.Location = new System.Drawing.Point(118, 80);
+            this.txtdescripcion.Location = new System.Drawing.Point(89, 97);
             this.txtdescripcion.Name = "txtdescripcion";
-            this.txtdescripcion.Size = new System.Drawing.Size(172, 20);
+            this.txtdescripcion.Size = new System.Drawing.Size(208, 20);
             this.txtdescripcion.TabIndex = 3;
             this.txtdescripcion.TextChanged += new System.EventHandler(this.txtdescripcion_TextChanged);
             // 
@@ -94,7 +95,7 @@ namespace Migraciones.Forms
             this.toolEliminar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(394, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(315, 39);
             this.toolStrip1.TabIndex = 17;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -107,10 +108,12 @@ namespace Migraciones.Forms
             this.toolNuevo.Name = "toolNuevo";
             this.toolNuevo.Size = new System.Drawing.Size(36, 36);
             this.toolNuevo.Text = "Nuevo";
+            this.toolNuevo.Click += new System.EventHandler(this.toolNuevo_Click);
             // 
             // toolGuardar
             // 
             this.toolGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolGuardar.Enabled = false;
             this.toolGuardar.Image = ((System.Drawing.Image)(resources.GetObject("toolGuardar.Image")));
             this.toolGuardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -143,11 +146,20 @@ namespace Migraciones.Forms
             this.toolEliminar.ToolTipText = "toolEliminar";
             this.toolEliminar.Click += new System.EventHandler(this.toolEliminar_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 135);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(315, 22);
+            this.statusStrip1.TabIndex = 18;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
             // frmTablas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 225);
+            this.ClientSize = new System.Drawing.Size(315, 157);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.txtdescripcion);
             this.Controls.Add(this.txtclave);
@@ -178,5 +190,6 @@ namespace Migraciones.Forms
         private System.Windows.Forms.ToolStripButton toolGuardar;
         private System.Windows.Forms.ToolStripButton toolBuscar;
         private System.Windows.Forms.ToolStripButton toolEliminar;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }

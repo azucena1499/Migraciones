@@ -16,7 +16,7 @@ namespace Migraciones
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.frmConexion());
+            Application.Run(new Forms.frmMenu());
         }
     }
 }

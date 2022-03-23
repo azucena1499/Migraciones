@@ -13,6 +13,10 @@ namespace Migraciones.Forms
 {
     public partial class frmConexion : Form
     {
+        //declaro el atritubo
+        public Clases.Conexion objConexionPrincipal { get; set; }
+     
+
         public frmConexion()
         {
             InitializeComponent();
@@ -42,19 +46,18 @@ namespace Migraciones.Forms
         {
             try
             {
-                Clases.Conexion objConexionPrincipal = new Clases.Conexion(txtServidor.Text, txtInstancia.Text, txtUsuario.Text, txtContraseña.Text);
+
+                this.objConexionPrincipal = new Clases.Conexion(txtServidor.Text, txtInstancia.Text, txtUsuario.Text, txtContraseña.Text);
                 SqlConnection cone = new SqlConnection(objConexionPrincipal.getConexion());
                 cone.Open();
 
-                //frmSistemas sistema = new frmSistemas(objConexionPrincipal);
-                frmMenu menu = new frmMenu(objConexionPrincipal);
-                menu.Show();
-                //sistema.Show();
-                this.Hide();
+                this.Close();
+
 
             }
             catch(SqlException exe)
             {
+                objConexionPrincipal = null;
                 MessageBox.Show("Error:falló la conexión,verifique los datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
@@ -64,6 +67,11 @@ namespace Migraciones.Forms
         private void txtInstancia_TextChanged(object sender, EventArgs e)
         {
             validarCampos();
+
+        }
+
+        private void frmConexion_Load(object sender, EventArgs e)
+        {
 
         }
     }

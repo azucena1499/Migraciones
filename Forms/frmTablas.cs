@@ -68,20 +68,31 @@ namespace Migraciones.Forms
 
         private void toolBuscar_Click(object sender, EventArgs e)
         {
-            Migraciones.Forms.frmBusquedaTabla frm = new Migraciones.Forms.frmBusquedaTabla(objConexionPrincipal);
-            frm.ShowDialog();
-
-            if (frm.DialogResult == DialogResult.OK)
+            try
             {
-                txtclave.Focus();
-                txtclave.Text = frm.dgBusquedaT.Rows[frm.dgBusquedaT.CurrentRow.Index].Cells[0].Value.ToString();
-                txtdescripcion.Text = frm.dgBusquedaT.Rows[frm.dgBusquedaT.CurrentRow.Index].Cells[1].Value.ToString();
-                existe = true;
+                Migraciones.Forms.frmBusquedaTabla frm = new Migraciones.Forms.frmBusquedaTabla(objConexionPrincipal);
+                frm.ShowDialog();
+
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    txtclave.Focus();
+                    txtclave.Text = frm.dgBusquedaT.Rows[frm.dgBusquedaT.CurrentRow.Index].Cells[0].Value.ToString();
+                    txtdescripcion.Text = frm.dgBusquedaT.Rows[frm.dgBusquedaT.CurrentRow.Index].Cells[1].Value.ToString();
+                    existe = true;
+                }
+                else
+                {
+                    existe = false;
+
+                }
+
             }
-            else
+         
+            
+          
+            catch (SqlException err)
             {
-                existe = false;
-
+                MessageBox.Show("Error en busqueda: " + err.Message, "Error Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -102,7 +113,7 @@ namespace Migraciones.Forms
                 MessageBox.Show("Registro guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtdescripcion.Clear();
                 //txtClave.Clear();
-                maximo();
+               
             }
             if (existe)
             {
@@ -134,6 +145,16 @@ namespace Migraciones.Forms
             }
             txtdescripcion.Clear();
             txtclave.Clear();
+            maximo();
+
+        }
+
+        private void toolNuevo_Click(object sender, EventArgs e)
+        {
+            
+            txtdescripcion.Clear();
+            txtclave.Clear();
+            txtclave.Focus();
             maximo();
         }
     }

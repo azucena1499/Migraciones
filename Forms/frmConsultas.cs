@@ -60,7 +60,7 @@ namespace Migraciones.Forms
             DataRow fila = dt.NewRow();
             fila["descripcion"] = "Seleccione";
             dt.Rows.InsertAt(fila, 0);
-                
+
             this.cboxTabla.DataSource = dt;
             this.cboxTabla.ValueMember = "id";
             this.cboxTabla.DisplayMember = "descripcion";
@@ -79,16 +79,17 @@ namespace Migraciones.Forms
                 if (txtClave.Text == "")
                 {
                     txtClave.Text = "1";
-                }   
+                }
             }
-            
-            
-            
+
+
+
         }
         private void limpiar()
         {
             txtDescripcion.Clear();
             txtClave.Clear();
+            txtConsulta.Clear();
             txtConsulta.Focus();
             cboxSistema.ResetText();
             cboxTabla.ResetText();
@@ -102,30 +103,6 @@ namespace Migraciones.Forms
 
         }
 
-        private void toolBar1_ButtonClick(object sender, ToolBarButtonClickEventArgs e)
-        {
-            //switch (toolBar1.Buttons.IndexOf(e.Button))
-            //{
-            //    //case 0:
-                //   
-                //    break;
-                //case 1:
-                //    string query1 = "delete from Consultas where id=@id";
-                //    SqlCommand comandoo = new SqlCommand(query1, cone);
-                //    comandoo.Parameters.Clear();
-                //    comandoo.Parameters.AddWithValue("@id", txtClave.Text);
-                //    if (MessageBox.Show("El registro sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
-                //        MessageBoxIcon.Stop) == DialogResult.Yes)
-                //    {
-                //        comandoo.ExecuteNonQuery();
-                //        MessageBox.Show("Se ha eliminado el registro", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    }
-                //    limpiar();
-                //    maximo();
-                //    break;
-
-            //}
-        }
 
         private void txtDescripcion_TextChanged(object sender, EventArgs e)
         {
@@ -165,44 +142,53 @@ namespace Migraciones.Forms
 
         private void toolGuardar_Click(object sender, EventArgs e)
         {
-            if (!existe)
+            try
             {
-                cone = new SqlConnection(objConexionPrincipal.getConexion());
-                //se abre la conexion
-                cone.Open();
-                 string query = "insert into Consultas values(@id_Sistema,@id_Tabla,@descripcion,@script)";  //este es para insetar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
-                SqlCommand comando = new SqlCommand(query, cone);
-                comando.Parameters.Clear();
-                comando.Parameters.AddWithValue("@id", txtClave.Text);
-                comando.Parameters.AddWithValue("@id_Sistema", cboxSistema.SelectedValue);
-                comando.Parameters.AddWithValue("@id_Tabla", cboxTabla.SelectedValue);
-                comando.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
-                comando.Parameters.AddWithValue("@script", txtConsulta.Text);
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Sistema guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //txtClave.Clear();
-                maximo();
+                if (!existe)
+                {
+                    cone = new SqlConnection(objConexionPrincipal.getConexion());
+                    //se abre la conexion
+                    cone.Open();
+                    string query = "insert into Consultas values(@id_Sistema,@id_Tabla,@descripcion,@script)";  //este es para insetar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
+                    SqlCommand comando = new SqlCommand(query, cone);
+                    comando.Parameters.Clear();
+                    comando.Parameters.AddWithValue("@id", txtClave.Text);
+                    comando.Parameters.AddWithValue("@id_Sistema", cboxSistema.SelectedValue);
+                    comando.Parameters.AddWithValue("@id_Tabla", cboxTabla.SelectedValue);
+                    comando.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
+                    comando.Parameters.AddWithValue("@script", txtConsulta.Text);
+                    comando.ExecuteNonQuery();
+                    MessageBox.Show("Sistema guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //txtClave.Clear();
+                }
+                if (existe)
+                {
+                    cone = new SqlConnection(objConexionPrincipal.getConexion());
+                    //se abre la conexion
+                    cone.Open();
+                    string query = "update Consultas set id_Sistema=@id_Sistema,id_Tabla=@id_Tabla,descripcion=@descripcion,script=@script where id=@id";  //este es para modificar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
+                    SqlCommand comando = new SqlCommand(query, cone);
+                    comando.Parameters.Clear();
+                    comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text));
+                    comando.Parameters.AddWithValue("@id_Sistema", cboxSistema.SelectedValue);
+                    comando.Parameters.AddWithValue("@id_Tabla", cboxTabla.SelectedValue); //este es para ya modificar 
+                    comando.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
+                    comando.Parameters.AddWithValue("@script", txtConsulta.Text);
+                    comando.ExecuteNonQuery();
+                    MessageBox.Show("Sistema modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
             }
-            if (existe)
+            catch (SqlException err)
             {
-                cone = new SqlConnection(objConexionPrincipal.getConexion());
-                //se abre la conexion
-                cone.Open();
-                string query = "update Consultas set id_Sistema=@id_Sistema,id_Tabla=@id_Tabla,descripcion=@descripcion,script=@script where id=@id";  //este es para modificar,se hace la conexion el campo y esl paramet                                                                                                            //asigno a comando el sqlcommand
-                SqlCommand comando = new SqlCommand(query, cone);
-                comando.Parameters.Clear();
-                comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text));
-                comando.Parameters.AddWithValue("@id_Sistema", cboxSistema.SelectedValue);
-                comando.Parameters.AddWithValue("@id_Tabla", cboxTabla.SelectedValue); //este es para ya modificar 
-                comando.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
-                comando.Parameters.AddWithValue("@script", txtConsulta.Text);
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Sistema modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-
+                MessageBox.Show("Error en consulta: " + err.Message, "Error Consulta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
+        private void toolNuevo_Click(object sender, EventArgs e)
+        {
+            maximo();
+            limpiar();
+        }
     }
 }

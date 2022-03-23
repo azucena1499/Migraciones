@@ -49,7 +49,7 @@ namespace Migraciones.Forms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 58);
+            this.panel1.Size = new System.Drawing.Size(477, 58);
             this.panel1.TabIndex = 24;
             // 
             // txtExpresion
@@ -72,7 +72,7 @@ namespace Migraciones.Forms
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(387, 283);
+            this.btnCancelar.Location = new System.Drawing.Point(394, 254);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 23;
@@ -82,7 +82,7 @@ namespace Migraciones.Forms
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(306, 283);
+            this.btnAceptar.Location = new System.Drawing.Point(313, 254);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 22;
@@ -92,9 +92,9 @@ namespace Migraciones.Forms
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 286);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(477, 22);
             this.statusStrip1.TabIndex = 21;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -107,7 +107,7 @@ namespace Migraciones.Forms
             this.cDescripcion});
             this.dgBusquedaT.Location = new System.Drawing.Point(6, 64);
             this.dgBusquedaT.Name = "dgBusquedaT";
-            this.dgBusquedaT.Size = new System.Drawing.Size(463, 208);
+            this.dgBusquedaT.Size = new System.Drawing.Size(463, 184);
             this.dgBusquedaT.TabIndex = 20;
             // 
             // cID
@@ -127,14 +127,15 @@ namespace Migraciones.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(477, 308);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.dgBusquedaT);
             this.Name = "frmBusquedaTabla";
-            this.Text = "frmBusquedaTabla";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Busqueda Tabla";
             this.Load += new System.EventHandler(this.frmBusquedaTabla_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

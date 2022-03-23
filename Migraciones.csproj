@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Conexion.cs" />
+    <Compile Include="Forms\ConexionOrigen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConexionOrigen.Designer.cs">
+      <DependentUpon>ConexionOrigen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmBusquedaConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ConexionOrigen.resx">
+      <DependentUpon>ConexionOrigen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmBusquedaConsulta.resx">
       <DependentUpon>frmBusquedaConsulta.cs</DependentUpon>
     </EmbeddedResource>

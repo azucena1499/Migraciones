@@ -123,6 +123,7 @@ namespace Migraciones.Forms
             // 
             // frmConexion
             // 
+            this.AcceptButton = this.btnEntrar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 386);
@@ -140,6 +141,7 @@ namespace Migraciones.Forms
             this.Name = "frmConexion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Conexion Principal";
+            this.Load += new System.EventHandler(this.frmConexion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

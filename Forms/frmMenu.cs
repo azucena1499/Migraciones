@@ -14,11 +14,57 @@ namespace Migraciones.Forms
     public partial class frmMenu : Form
     {
         private Clases.Conexion objConexionPrincipal;
-        public frmMenu(Clases.Conexion objConexionPrincipal)
+
+        //public frmMenu(Clases.Conexion objConexionPrincipal)
+        //{
+        //    this.objConexionPrincipal = objConexionPrincipal;
+        //    InitializeComponent();
+        //}
+
+        public frmMenu()
         {
-            this.objConexionPrincipal = objConexionPrincipal;
+
             InitializeComponent();
         }
+        private void mostrarFrmConexionPrincipal()
+        {
+            Migraciones.Forms.frmConexion frm = new frmConexion();
+            frm.ShowDialog();
+            this.objConexionPrincipal = frm.objConexionPrincipal;
+
+            if (this.objConexionPrincipal == null)//si falla conexion es nulo 
+            {
+                MessageBox.Show("Se necesita conexion");
+
+            }
+
+        }
+        private void mostrarFrmSistemas()
+        {
+
+            frmSistemas frm = new frmSistemas(this.objConexionPrincipal);
+            frm.MdiParent = this;
+            frm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            frm.Show();
+        }
+        private void mostrarFrmTabla()
+        {
+
+            frmTablas frm = new frmTablas(this.objConexionPrincipal);
+            frm.MdiParent = this;
+            frm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            frm.Show();
+        }
+        private void mostrarFrmConsulta()
+        {
+
+            frmConsultas frm = new frmConsultas(this.objConexionPrincipal);
+            frm.MdiParent = this;
+            frm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            frm.Show();
+        }
+
+
 
         private void conexionToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -40,24 +86,69 @@ namespace Migraciones.Forms
         private void frmMenu_Load(object sender, EventArgs e)
         {
 
+
+            mostrarFrmConexionPrincipal();
+  
+
         }
 
-        private void consultasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmConsultas ventanaConsulta = new frmConsultas(this.objConexionPrincipal);
-            ventanaConsulta.Show();
-        }
-
-        private void tablasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmTablas ventanaTabla = new frmTablas(this.objConexionPrincipal);
-            ventanaTabla.Show();
-        }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
 
         }
+
+        private void sistemasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if(this.objConexionPrincipal!=null)
+            {
+                mostrarFrmSistemas();
+            }
+            else
+            {
+                mostrarFrmConexionPrincipal();
+                if(this.objConexionPrincipal!=null)
+                {
+                    mostrarFrmSistemas();
+                }
+            }
+            
+        }
+
+        private void tablasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (this.objConexionPrincipal != null)
+            {
+                mostrarFrmTabla();
+            }
+            else
+            {
+                mostrarFrmConexionPrincipal();
+                if (this.objConexionPrincipal != null)
+                {
+                    mostrarFrmTabla();
+                }
+            }
+
+        }
+
+        private void consultasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (this.objConexionPrincipal != null)
+            {
+                mostrarFrmConsulta();
+            }
+            else
+            {
+                mostrarFrmConexionPrincipal();
+                if (this.objConexionPrincipal != null)
+                {
+                    mostrarFrmConsulta();
+                }
+            }
+        }
+
+       
     }
 }
