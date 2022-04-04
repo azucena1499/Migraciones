@@ -20,6 +20,7 @@ namespace Migraciones.Forms
             this.objConexionPrincipal = objConexionPrincipal;
 
         }
+        
         private Clases.Conexion objConexionPrincipal;
         private SqlConnection cone;
 
@@ -33,10 +34,33 @@ namespace Migraciones.Forms
             cone.Open();
             this.CancelButton = btnCancelar;
             cmd.Connection = cone;
-            cmd.CommandText = "SELECT id,id_Sistema,id_Tabla,descripcion,script FROM Consultas";
+            cmd.CommandText = "SELECT c.id as id,s.nombre as nombre_sistema,t.descripcion as nombre_tabla,c.descripcion as nombre_consulta,c.script,c.id_sistema,c.id_tabla FROM Consultas c INNER JOIN Sistemas s ON c.id_Sistema = s.id INNER JOIN Tablas t ON c.id_tabla = t.id ";
             da.SelectCommand = cmd;
             dgBusquedaConsulta.DataSource = dt;
+            llenarcboxSistema();
         }
+        private void llenarcboxSistema()
+        {
+            DataTable dt = new DataTable();
+            cone = new SqlConnection(objConexionPrincipal.getConexion());
+            cone.Open();
+            string query = "SELECT * from Sistemas where id >=1 order by nombre";
+            //defino comando
+            SqlCommand comando = new SqlCommand(query, cone);
+            //defino mi adapter
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            //lleno el datatable
+            da.Fill(dt);
+            cone.Close();
+            DataRow fila = dt.NewRow();
+            fila["nombre"] = "Seleccione";
+            dt.Rows.InsertAt(fila, 0);
+            this.cboxsistema1.DataSource = dt;
+            this.cboxsistema1.ValueMember = "id";
+            this.cboxsistema1.DisplayMember = "nombre";
+            cone.Close();
+        }
+
         public void buscar(String expresion)
         {
             try
@@ -45,9 +69,8 @@ namespace Migraciones.Forms
 
                 if (!string.IsNullOrEmpty(expresion))//se pone el ! para que devuelva falso y no true
                 {
-                    cmd.CommandText = "SELECT id,id_Sistema,id_Tabla,descripcion,script from Consultas where id LIKE '%' + '" + @expresion + "' + '%' OR id_Sistema LIKE '%' + '" + @expresion + "' + '%' OR id_Tabla LIKE '%' + '" + @expresion + "' + '%' OR descripcion LIKE '%' + '" + @expresion + "' + '%' OR script LIKE '%' + '" + @expresion + "' + '%'";
-
-                    //cmd.CommandText = "SELECT id, nombre FROM Sistemas WHERE id LIKE '%' + '" + @expresion + "' + '%' OR nombre LIKE '%' + '" + @expresion + "' + '%'";//sirve para buscar lo que contenga la expresion em id o nombre
+                    cmd.CommandText = "SELECT c.id as id,s.nombre as nombre_sistema,t.descripcion as nombre_tabla,c.descripcion as nombre_consulta,c.script,c.id_sistema,c.id_tabla FROM Consultas c INNER JOIN Sistemas s ON c.id_Sistema = s.id INNER JOIN Tablas t ON c.id_tabla = t.id where c.id LIKE '%' + '" + @expresion + "' + '%' OR s.nombre LIKE '%' + '" + @expresion + "' + '%' OR t.descripcion LIKE '%' + '" + @expresion + "' + '%' OR c.descripcion LIKE '%' + '" + @expresion + "' + '%' OR c.script LIKE '%' + '" + @expresion + "' + '%'";
+                    //cmd.CommandText = "SELECT c.id,  p.nombre,c.descripcion,c.script, r.descripcion FROM Consultas c INNER JOIN Sistemas p ON c.id_Sistema= p.id INNER JOIN Tablas r ON r.id =p.id where id LIKE '%' + '" + @expresion + "' + '%' OR p.id_Sistema LIKE '%' + '" + @expresion + "' + '%' OR c.id_Tabla LIKE '%' + '" + @expresion + "' + '%' OR c.descripcion LIKE '%' + '" + @expresion + "' + '%' OR c.script LIKE '%' + '" + @expresion + "' + '%'";
                     cmd.Parameters.AddWithValue("@expresion", expresion);
                 }
                 da.SelectCommand = cmd;//no se ejecute antes
@@ -64,17 +87,16 @@ namespace Migraciones.Forms
 
 
 
-        private void txtExpresion_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                buscar(txtExpresion.Text);
-            }
-        }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+
+        }
+
+     
+        private void cboxsistema1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            buscar(cboxsistema1.Text);
 
         }
     }

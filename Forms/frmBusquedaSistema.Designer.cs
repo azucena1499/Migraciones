@@ -44,6 +44,7 @@ namespace Migraciones.Forms
             // 
             // dgBusqueda
             // 
+            this.dgBusqueda.AllowUserToAddRows = false;
             this.dgBusqueda.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgBusqueda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -51,7 +52,7 @@ namespace Migraciones.Forms
             this.cNombre});
             this.dgBusqueda.Location = new System.Drawing.Point(6, 64);
             this.dgBusqueda.Name = "dgBusqueda";
-            this.dgBusqueda.Size = new System.Drawing.Size(463, 208);
+            this.dgBusqueda.Size = new System.Drawing.Size(443, 208);
             this.dgBusqueda.TabIndex = 15;
             // 
             // cID
@@ -71,13 +72,13 @@ namespace Migraciones.Forms
             // 
             this.statusStrip1.Location = new System.Drawing.Point(0, 317);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(481, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(463, 22);
             this.statusStrip1.TabIndex = 16;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(306, 283);
+            this.btnAceptar.Location = new System.Drawing.Point(295, 291);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 17;
@@ -87,7 +88,7 @@ namespace Migraciones.Forms
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(387, 283);
+            this.btnCancelar.Location = new System.Drawing.Point(376, 291);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 18;
@@ -102,7 +103,7 @@ namespace Migraciones.Forms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(481, 58);
+            this.panel1.Size = new System.Drawing.Size(463, 58);
             this.panel1.TabIndex = 19;
             // 
             // txtExpresion
@@ -126,7 +127,7 @@ namespace Migraciones.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 339);
+            this.ClientSize = new System.Drawing.Size(463, 339);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);

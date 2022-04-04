@@ -33,6 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,6 +59,12 @@
     </Compile>
     <Compile Include="Forms\ConexionOrigen.Designer.cs">
       <DependentUpon>ConexionOrigen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBusquedaConexionesOrigen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBusquedaConexionesOrigen.Designer.cs">
+      <DependentUpon>frmBusquedaConexionesOrigen.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmBusquedaConsulta.cs">
       <SubType>Form</SubType>
@@ -83,6 +96,12 @@
     <Compile Include="Forms\frmConsultas.Designer.cs">
       <DependentUpon>frmConsultas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLayout.Designer.cs">
+      <DependentUpon>frmLayout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +125,9 @@
     <EmbeddedResource Include="Forms\ConexionOrigen.resx">
       <DependentUpon>ConexionOrigen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBusquedaConexionesOrigen.resx">
+      <DependentUpon>frmBusquedaConexionesOrigen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmBusquedaConsulta.resx">
       <DependentUpon>frmBusquedaConsulta.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +143,9 @@
     <EmbeddedResource Include="Forms\frmConsultas.resx">
       <DependentUpon>frmConsultas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLayout.resx">
+      <DependentUpon>frmLayout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +155,7 @@
     <EmbeddedResource Include="Forms\frmTablas.resx">
       <DependentUpon>frmTablas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -13,7 +13,7 @@ namespace Migraciones.Forms
 {
     public partial class frmConexion : Form
     {
-        //declaro el atritubo
+        
         public Clases.Conexion objConexionPrincipal { get; set; }
      
 

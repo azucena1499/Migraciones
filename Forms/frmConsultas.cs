@@ -91,8 +91,10 @@ namespace Migraciones.Forms
             txtClave.Clear();
             txtConsulta.Clear();
             txtConsulta.Focus();
-            cboxSistema.ResetText();
-            cboxTabla.ResetText();
+            //cboxSistema.ResetText();
+            cboxSistema.SelectedIndex = 0;
+            cboxTabla.SelectedIndex = 0;
+            //cboxTabla.ResetText();
             toolEliminar.Enabled = false;
         }
         private void frmConsultas_Load(object sender, EventArgs e)
@@ -106,15 +108,17 @@ namespace Migraciones.Forms
 
         private void txtDescripcion_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtDescripcion.Text) && !string.IsNullOrEmpty(txtConsulta.Text) && txtDescripcion.Text.Trim() != "" && txtConsulta.Text.Trim() != "")
-            {
-                toolGuardar.Enabled = true;
-            }
-            else
-            {
-                toolGuardar.Enabled = false;
+            ////if (!string.IsNullOrEmpty(txtDescripcion.Text) && !string.IsNullOrEmpty(txtConsulta.Text) && txtDescripcion.Text.Trim() != "" && txtConsulta.Text.Trim() != "")
+            //    if (!string.IsNullOrEmpty(txtDescripcion.Text) && !string.IsNullOrEmpty(txtConsulta.Text) && txtConsulta.Text.Trim() != "" && txtDescripcion.Text.Trim() != "")
 
-            }
+            // {
+            //        toolGuardar.Enabled = true;
+            //}
+            //else
+            //{
+            //    toolGuardar.Enabled = false;
+
+            //}
         }
 
         private void toolBuscar_Click(object sender, EventArgs e)
@@ -126,8 +130,8 @@ namespace Migraciones.Forms
             {
                 txtClave.Focus();
                 txtClave.Text = frm.dgBusquedaConsulta.Rows[frm.dgBusquedaConsulta.CurrentRow.Index].Cells[0].Value.ToString();
-                cboxSistema.SelectedValue = frm.dgBusquedaConsulta.Rows[frm.dgBusquedaConsulta.CurrentRow.Index].Cells[1].Value.ToString();
-                cboxTabla.SelectedValue = frm.dgBusquedaConsulta.Rows[frm.dgBusquedaConsulta.CurrentRow.Index].Cells[2].Value.ToString();
+                cboxSistema.SelectedValue = frm.dgBusquedaConsulta.Rows[frm.dgBusquedaConsulta.CurrentRow.Index].Cells[5].Value.ToString();
+                cboxTabla.SelectedValue = frm.dgBusquedaConsulta.Rows[frm.dgBusquedaConsulta.CurrentRow.Index].Cells[6].Value.ToString();
                 txtDescripcion.Text = frm.dgBusquedaConsulta.Rows[frm.dgBusquedaConsulta.CurrentRow.Index].Cells[3].Value.ToString();
                 txtConsulta.Text = frm.dgBusquedaConsulta.Rows[frm.dgBusquedaConsulta.CurrentRow.Index].Cells[4].Value.ToString();
 
@@ -158,7 +162,7 @@ namespace Migraciones.Forms
                     comando.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
                     comando.Parameters.AddWithValue("@script", txtConsulta.Text);
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("Sistema guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Consulta guardada con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //txtClave.Clear();
                 }
                 if (existe)
@@ -175,7 +179,7 @@ namespace Migraciones.Forms
                     comando.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
                     comando.Parameters.AddWithValue("@script", txtConsulta.Text);
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("Sistema modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("consulta modificada con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
             }
@@ -187,8 +191,43 @@ namespace Migraciones.Forms
 
         private void toolNuevo_Click(object sender, EventArgs e)
         {
-            maximo();
+           
             limpiar();
+            maximo();
+        }
+
+        private void cboxSistema_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolEliminar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                string query1 = "delete from Consultas where id=@id";
+                SqlCommand comandoo = new SqlCommand(query1, cone);
+                comandoo.Parameters.Clear();
+                comandoo.Parameters.AddWithValue("@id", txtClave.Text);
+                if (MessageBox.Show("La consulta sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Stop) == DialogResult.Yes)
+                {
+                    comandoo.ExecuteNonQuery();
+                    MessageBox.Show("Se ha eliminado la consulta", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                limpiar();
+                maximo();
+            }
+            catch (SqlException err)
+            {
+                MessageBox.Show("Error en consulta: " + err.Message, "Error Consulta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

@@ -36,10 +36,10 @@ namespace Migraciones.Forms
             this.tablasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.conexionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extraerDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarLayoutsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurarConexionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,8 +47,8 @@ namespace Migraciones.Forms
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.catalogosToolStripMenuItem,
-            this.salirToolStripMenuItem,
-            this.extraerDatosToolStripMenuItem});
+            this.extraerDatosToolStripMenuItem,
+            this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(659, 24);
@@ -69,37 +69,30 @@ namespace Migraciones.Forms
             // sistemasToolStripMenuItem1
             // 
             this.sistemasToolStripMenuItem1.Name = "sistemasToolStripMenuItem1";
-            this.sistemasToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+            this.sistemasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.sistemasToolStripMenuItem1.Text = "Sistemas";
             this.sistemasToolStripMenuItem1.Click += new System.EventHandler(this.sistemasToolStripMenuItem1_Click);
             // 
             // tablasToolStripMenuItem1
             // 
             this.tablasToolStripMenuItem1.Name = "tablasToolStripMenuItem1";
-            this.tablasToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+            this.tablasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.tablasToolStripMenuItem1.Text = "Tablas";
             this.tablasToolStripMenuItem1.Click += new System.EventHandler(this.tablasToolStripMenuItem1_Click);
             // 
             // conexionesToolStripMenuItem1
             // 
             this.conexionesToolStripMenuItem1.Name = "conexionesToolStripMenuItem1";
-            this.conexionesToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+            this.conexionesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.conexionesToolStripMenuItem1.Text = "Conexiones";
+            this.conexionesToolStripMenuItem1.Click += new System.EventHandler(this.conexionesToolStripMenuItem1_Click);
             // 
             // consultasToolStripMenuItem1
             // 
             this.consultasToolStripMenuItem1.Name = "consultasToolStripMenuItem1";
-            this.consultasToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+            this.consultasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.consultasToolStripMenuItem1.Text = "Consultas";
             this.consultasToolStripMenuItem1.Click += new System.EventHandler(this.consultasToolStripMenuItem1_Click);
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salirToolStripMenuItem.Image")));
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // extraerDatosToolStripMenuItem
             // 
@@ -121,6 +114,14 @@ namespace Migraciones.Forms
             this.configurarConexionToolStripMenuItem.Name = "configurarConexionToolStripMenuItem";
             this.configurarConexionToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.configurarConexionToolStripMenuItem.Text = "Configurar Conexion";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salirToolStripMenuItem.Image")));
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // frmMenu
             // 

@@ -30,7 +30,7 @@ namespace Migraciones.Forms
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtExpresion = new System.Windows.Forms.TextBox();
+            this.cboxsistema1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -40,6 +40,8 @@ namespace Migraciones.Forms
             this.idTabla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Script = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_sistema = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_tabla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBusquedaConsulta)).BeginInit();
@@ -47,21 +49,23 @@ namespace Migraciones.Forms
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.txtExpresion);
+            this.panel2.Controls.Add(this.cboxsistema1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 58);
+            this.panel2.Size = new System.Drawing.Size(840, 58);
             this.panel2.TabIndex = 23;
             // 
-            // txtExpresion
+            // cboxsistema1
             // 
-            this.txtExpresion.Location = new System.Drawing.Point(12, 13);
-            this.txtExpresion.Name = "txtExpresion";
-            this.txtExpresion.Size = new System.Drawing.Size(145, 20);
-            this.txtExpresion.TabIndex = 1;
-            this.txtExpresion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtExpresion_KeyPress);
+            this.cboxsistema1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxsistema1.FormattingEnabled = true;
+            this.cboxsistema1.Location = new System.Drawing.Point(3, 12);
+            this.cboxsistema1.Name = "cboxsistema1";
+            this.cboxsistema1.Size = new System.Drawing.Size(211, 21);
+            this.cboxsistema1.TabIndex = 29;
+            this.cboxsistema1.SelectedValueChanged += new System.EventHandler(this.cboxsistema1_SelectedValueChanged);
             // 
             // label1
             // 
@@ -74,7 +78,7 @@ namespace Migraciones.Forms
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(725, 395);
+            this.btnCancelar.Location = new System.Drawing.Point(671, 315);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 30);
             this.btnCancelar.TabIndex = 22;
@@ -83,7 +87,7 @@ namespace Migraciones.Forms
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(644, 395);
+            this.btnAceptar.Location = new System.Drawing.Point(590, 315);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 30);
             this.btnAceptar.TabIndex = 21;
@@ -93,6 +97,7 @@ namespace Migraciones.Forms
             // 
             // dgBusquedaConsulta
             // 
+            this.dgBusquedaConsulta.AllowUserToAddRows = false;
             this.dgBusquedaConsulta.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgBusquedaConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgBusquedaConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -100,10 +105,12 @@ namespace Migraciones.Forms
             this.idSistema,
             this.idTabla,
             this.descripcion,
-            this.Script});
+            this.Script,
+            this.id_sistema,
+            this.id_tabla});
             this.dgBusquedaConsulta.Location = new System.Drawing.Point(0, 64);
             this.dgBusquedaConsulta.Name = "dgBusquedaConsulta";
-            this.dgBusquedaConsulta.Size = new System.Drawing.Size(782, 208);
+            this.dgBusquedaConsulta.Size = new System.Drawing.Size(774, 212);
             this.dgBusquedaConsulta.TabIndex = 20;
             // 
             // cID
@@ -114,21 +121,21 @@ namespace Migraciones.Forms
             // 
             // idSistema
             // 
-            this.idSistema.DataPropertyName = "id_Sistema";
-            this.idSistema.HeaderText = "Clave Sistema";
+            this.idSistema.DataPropertyName = "nombre_sistema";
+            this.idSistema.HeaderText = " Sistema";
             this.idSistema.Name = "idSistema";
             this.idSistema.Width = 150;
             // 
             // idTabla
             // 
-            this.idTabla.DataPropertyName = "id_Tabla";
+            this.idTabla.DataPropertyName = "nombre_tabla";
             this.idTabla.HeaderText = "Tabla";
             this.idTabla.Name = "idTabla";
             this.idTabla.Width = 150;
             // 
             // descripcion
             // 
-            this.descripcion.DataPropertyName = "descripcion";
+            this.descripcion.DataPropertyName = "nombre_consulta";
             this.descripcion.HeaderText = "Descripción";
             this.descripcion.Name = "descripcion";
             this.descripcion.Width = 180;
@@ -140,11 +147,25 @@ namespace Migraciones.Forms
             this.Script.Name = "Script";
             this.Script.Width = 150;
             // 
+            // id_sistema
+            // 
+            this.id_sistema.DataPropertyName = "id_sistema";
+            this.id_sistema.HeaderText = "id Sitema";
+            this.id_sistema.Name = "id_sistema";
+            this.id_sistema.Visible = false;
+            // 
+            // id_tabla
+            // 
+            this.id_tabla.DataPropertyName = "id_tabla";
+            this.id_tabla.HeaderText = "id Tabla";
+            this.id_tabla.Name = "id_tabla";
+            this.id_tabla.Visible = false;
+            // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 345);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(840, 22);
             this.statusStrip1.TabIndex = 24;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -152,7 +173,7 @@ namespace Migraciones.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(840, 367);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnCancelar);
@@ -173,16 +194,18 @@ namespace Migraciones.Forms
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtExpresion;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
         public System.Windows.Forms.DataGridView dgBusquedaConsulta;
+        private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cID;
         private System.Windows.Forms.DataGridViewTextBoxColumn idSistema;
         private System.Windows.Forms.DataGridViewTextBoxColumn idTabla;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Script;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_sistema;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_tabla;
+        private System.Windows.Forms.ComboBox cboxsistema1;
     }
 }

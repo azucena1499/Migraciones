@@ -41,6 +41,7 @@ namespace Migraciones
 
             txtNombre.Clear();
             txtClave.Clear();
+            
             //tbteliminar.Enabled = false;
         }
         private void frmSistemas_Load(object sender, EventArgs e)

@@ -22,7 +22,7 @@ namespace Migraciones.Forms
         private SqlConnection cone;
 
 
-        public DataTable dt = new DataTable();//deberian ser privado 
+        public DataTable dt = new DataTable();
         
         public SqlCommand cmd = new SqlCommand();
         public SqlDataAdapter da = new SqlDataAdapter();

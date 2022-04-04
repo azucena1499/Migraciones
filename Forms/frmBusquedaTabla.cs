@@ -74,6 +74,7 @@ namespace Migraciones.Forms
             this.CancelButton = btnCancelar;
             cmd.Connection = cone;
             cmd.CommandText = "SELECT id, descripcion FROM tablas";
+
             da.SelectCommand = cmd;
             dgBusquedaT.DataSource = dt;
         }

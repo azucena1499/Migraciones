@@ -28,13 +28,13 @@ namespace Migraciones.Forms
         }
         private void mostrarFrmConexionPrincipal()
         {
-            Migraciones.Forms.frmConexion frm = new frmConexion();
+           frmConexion frm = new frmConexion();
             frm.ShowDialog();
             this.objConexionPrincipal = frm.objConexionPrincipal;
 
             if (this.objConexionPrincipal == null)//si falla conexion es nulo 
             {
-                MessageBox.Show("Se necesita conexion");
+                MessageBox.Show("Se necesita establecer una  conexión");
 
             }
 
@@ -63,7 +63,13 @@ namespace Migraciones.Forms
             frm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             frm.Show();
         }
-
+        private void mostarFrmConexion()
+        {
+            frmConexionOrigen frm = new frmConexionOrigen(this.objConexionPrincipal);
+            frm.MdiParent = this;
+            frm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            frm.Show();
+        }
 
 
         private void conexionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -149,6 +155,20 @@ namespace Migraciones.Forms
             }
         }
 
-       
+        private void conexionesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (this.objConexionPrincipal != null)
+            {
+                mostarFrmConexion();
+            }
+            else
+            {
+                mostrarFrmConexionPrincipal();
+                if (this.objConexionPrincipal != null)
+                {
+                    mostarFrmConexion();
+                }
+            }
+        }
     }
 }

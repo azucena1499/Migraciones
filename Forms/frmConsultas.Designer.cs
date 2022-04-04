@@ -68,6 +68,7 @@ namespace Migraciones.Forms
             this.cboxSistema.Name = "cboxSistema";
             this.cboxSistema.Size = new System.Drawing.Size(211, 21);
             this.cboxSistema.TabIndex = 1;
+            this.cboxSistema.SelectedIndexChanged += new System.EventHandler(this.cboxSistema_SelectedIndexChanged);
             // 
             // cboxTabla
             // 
@@ -93,7 +94,7 @@ namespace Migraciones.Forms
             this.txtClave.Location = new System.Drawing.Point(89, 51);
             this.txtClave.Multiline = true;
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(54, 22);
+            this.txtClave.Size = new System.Drawing.Size(93, 22);
             this.txtClave.TabIndex = 5;
             // 
             // lblClave
@@ -127,7 +128,7 @@ namespace Migraciones.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 248);
+            this.label3.Location = new System.Drawing.Point(18, 236);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 15;
@@ -135,7 +136,7 @@ namespace Migraciones.Forms
             // 
             // txtConsulta
             // 
-            this.txtConsulta.Location = new System.Drawing.Point(89, 245);
+            this.txtConsulta.Location = new System.Drawing.Point(89, 233);
             this.txtConsulta.Multiline = true;
             this.txtConsulta.Name = "txtConsulta";
             this.txtConsulta.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -161,6 +162,7 @@ namespace Migraciones.Forms
             this.toolStrip1.Size = new System.Drawing.Size(857, 39);
             this.toolStrip1.TabIndex = 18;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // toolNuevo
             // 
@@ -206,6 +208,7 @@ namespace Migraciones.Forms
             this.toolEliminar.Size = new System.Drawing.Size(36, 36);
             this.toolEliminar.Text = "toolEliminar";
             this.toolEliminar.ToolTipText = "toolEliminar";
+            this.toolEliminar.Click += new System.EventHandler(this.toolEliminar_Click);
             // 
             // statusStrip1
             // 
