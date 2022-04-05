@@ -28,7 +28,7 @@ namespace Migraciones.Forms
         }
         private void mostrarFrmConexionPrincipal()
         {
-           frmConexion frm = new frmConexion();
+            frmConexion frm = new frmConexion();
             frm.ShowDialog();
             this.objConexionPrincipal = frm.objConexionPrincipal;
 
@@ -71,7 +71,13 @@ namespace Migraciones.Forms
             frm.Show();
         }
 
-
+        private void mostarFrmLayout()
+        {
+            frmLayout frm = new frmLayout(this.objConexionPrincipal);
+            frm.MdiParent = this;
+            frm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            frm.Show();
+        }
         private void conexionToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -167,6 +173,22 @@ namespace Migraciones.Forms
                 if (this.objConexionPrincipal != null)
                 {
                     mostarFrmConexion();
+                }
+            }
+        }
+
+        private void generarLayoutsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.objConexionPrincipal != null)
+            {
+                mostarFrmLayout();
+            }
+            else
+            {
+                mostrarFrmConexionPrincipal();
+                if (this.objConexionPrincipal != null)
+                {
+                    mostarFrmLayout();
                 }
             }
         }

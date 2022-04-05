@@ -136,6 +136,8 @@ namespace Migraciones
         private void toolNuevo_Click(object sender, EventArgs e)
         {
             limpiar();
+            existe = false;
+
             maximo();
         }
 
@@ -157,7 +159,7 @@ namespace Migraciones
                     comando.ExecuteNonQuery();//es para verificar los editados
                     MessageBox.Show("Sistema guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNombre.Clear();
-                    //txtClave.Clear();
+                    maximo();
                 }
                 if (existe)
                 {

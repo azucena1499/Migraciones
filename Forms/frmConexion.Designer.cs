@@ -35,10 +35,12 @@ namespace Migraciones.Forms
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblContraseña = new System.Windows.Forms.Label();
             this.txtServidor = new System.Windows.Forms.TextBox();
-            this.txtInstancia = new System.Windows.Forms.TextBox();
+            this.txtbaseDatos = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnEntrar = new System.Windows.Forms.Button();
+            this.txtinstancia = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblServidor
@@ -53,7 +55,7 @@ namespace Migraciones.Forms
             // lblinstancia
             // 
             this.lblinstancia.AutoSize = true;
-            this.lblinstancia.Location = new System.Drawing.Point(226, 97);
+            this.lblinstancia.Location = new System.Drawing.Point(209, 85);
             this.lblinstancia.Name = "lblinstancia";
             this.lblinstancia.Size = new System.Drawing.Size(50, 13);
             this.lblinstancia.TabIndex = 1;
@@ -62,7 +64,7 @@ namespace Migraciones.Forms
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(230, 175);
+            this.lblUsuario.Location = new System.Drawing.Point(218, 225);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 2;
@@ -71,7 +73,7 @@ namespace Migraciones.Forms
             // lblContraseña
             // 
             this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Location = new System.Drawing.Point(221, 251);
+            this.lblContraseña.Location = new System.Drawing.Point(209, 301);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(61, 13);
             this.lblContraseña.TabIndex = 3;
@@ -86,18 +88,18 @@ namespace Migraciones.Forms
             this.txtServidor.Text = "DESKTOP-4CSQT06";
             this.txtServidor.TextChanged += new System.EventHandler(this.txtServidor_TextChanged);
             // 
-            // txtInstancia
+            // txtbaseDatos
             // 
-            this.txtInstancia.Location = new System.Drawing.Point(161, 125);
-            this.txtInstancia.Name = "txtInstancia";
-            this.txtInstancia.Size = new System.Drawing.Size(181, 20);
-            this.txtInstancia.TabIndex = 5;
-            this.txtInstancia.Text = "BMS_MIGRACIONES";
-            this.txtInstancia.TextChanged += new System.EventHandler(this.txtInstancia_TextChanged);
+            this.txtbaseDatos.Location = new System.Drawing.Point(161, 187);
+            this.txtbaseDatos.Name = "txtbaseDatos";
+            this.txtbaseDatos.Size = new System.Drawing.Size(181, 20);
+            this.txtbaseDatos.TabIndex = 5;
+            this.txtbaseDatos.Text = "BMS_MIGRACIONES";
+            this.txtbaseDatos.TextChanged += new System.EventHandler(this.txtInstancia_TextChanged);
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(161, 213);
+            this.txtUsuario.Location = new System.Drawing.Point(161, 263);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(181, 20);
             this.txtUsuario.TabIndex = 6;
@@ -105,7 +107,7 @@ namespace Migraciones.Forms
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(161, 283);
+            this.txtContraseña.Location = new System.Drawing.Point(161, 333);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(181, 20);
             this.txtContraseña.TabIndex = 7;
@@ -121,16 +123,34 @@ namespace Migraciones.Forms
             this.btnEntrar.UseVisualStyleBackColor = true;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
+            // txtinstancia
+            // 
+            this.txtinstancia.Location = new System.Drawing.Point(161, 113);
+            this.txtinstancia.Name = "txtinstancia";
+            this.txtinstancia.Size = new System.Drawing.Size(181, 20);
+            this.txtinstancia.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(209, 161);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Base de Datos";
+            // 
             // frmConexion
             // 
             this.AcceptButton = this.btnEntrar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 386);
+            this.Controls.Add(this.txtinstancia);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
-            this.Controls.Add(this.txtInstancia);
+            this.Controls.Add(this.txtbaseDatos);
             this.Controls.Add(this.txtServidor);
             this.Controls.Add(this.lblContraseña);
             this.Controls.Add(this.lblUsuario);
@@ -154,9 +174,11 @@ namespace Migraciones.Forms
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblContraseña;
         private System.Windows.Forms.TextBox txtServidor;
-        private System.Windows.Forms.TextBox txtInstancia;
+        private System.Windows.Forms.TextBox txtbaseDatos;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Button btnEntrar;
+        private System.Windows.Forms.TextBox txtinstancia;
+        private System.Windows.Forms.Label label1;
     }
 }

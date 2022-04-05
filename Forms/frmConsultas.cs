@@ -89,12 +89,11 @@ namespace Migraciones.Forms
         {
             txtDescripcion.Clear();
             txtClave.Clear();
+            maximo();
             txtConsulta.Clear();
             txtConsulta.Focus();
-            //cboxSistema.ResetText();
             cboxSistema.SelectedIndex = 0;
             cboxTabla.SelectedIndex = 0;
-            //cboxTabla.ResetText();
             toolEliminar.Enabled = false;
         }
         private void frmConsultas_Load(object sender, EventArgs e)
@@ -108,17 +107,7 @@ namespace Migraciones.Forms
 
         private void txtDescripcion_TextChanged(object sender, EventArgs e)
         {
-            ////if (!string.IsNullOrEmpty(txtDescripcion.Text) && !string.IsNullOrEmpty(txtConsulta.Text) && txtDescripcion.Text.Trim() != "" && txtConsulta.Text.Trim() != "")
-            //    if (!string.IsNullOrEmpty(txtDescripcion.Text) && !string.IsNullOrEmpty(txtConsulta.Text) && txtConsulta.Text.Trim() != "" && txtDescripcion.Text.Trim() != "")
-
-            // {
-            //        toolGuardar.Enabled = true;
-            //}
-            //else
-            //{
-            //    toolGuardar.Enabled = false;
-
-            //}
+            
         }
 
         private void toolBuscar_Click(object sender, EventArgs e)
@@ -193,6 +182,7 @@ namespace Migraciones.Forms
         {
            
             limpiar();
+            existe = false;
             maximo();
         }
 

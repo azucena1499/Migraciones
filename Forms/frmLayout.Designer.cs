@@ -90,11 +90,15 @@ namespace Migraciones.Forms
             // cboxSistema
             // 
             this.cboxSistema.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxSistema.Enabled = false;
             this.cboxSistema.FormattingEnabled = true;
+            this.cboxSistema.Items.AddRange(new object[] {
+            "Seleccione"});
             this.cboxSistema.Location = new System.Drawing.Point(80, 76);
             this.cboxSistema.Name = "cboxSistema";
             this.cboxSistema.Size = new System.Drawing.Size(211, 21);
             this.cboxSistema.TabIndex = 28;
+            this.cboxSistema.SelectedIndexChanged += new System.EventHandler(this.cboxSistema_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -108,7 +112,10 @@ namespace Migraciones.Forms
             // cboxTabla
             // 
             this.cboxTabla.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxTabla.Enabled = false;
             this.cboxTabla.FormattingEnabled = true;
+            this.cboxTabla.Items.AddRange(new object[] {
+            "Seleccione"});
             this.cboxTabla.Location = new System.Drawing.Point(80, 103);
             this.cboxTabla.Name = "cboxTabla";
             this.cboxTabla.Size = new System.Drawing.Size(211, 21);
@@ -131,6 +138,7 @@ namespace Migraciones.Forms
             this.cboxConexion.Name = "cboxConexion";
             this.cboxConexion.Size = new System.Drawing.Size(211, 21);
             this.cboxConexion.TabIndex = 31;
+            this.cboxConexion.SelectedIndexChanged += new System.EventHandler(this.cboxConexion_SelectedIndexChanged);
             // 
             // gridControl1
             // 
@@ -162,6 +170,7 @@ namespace Migraciones.Forms
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmLayout";
             this.Text = "frmLayout";
+            this.Load += new System.EventHandler(this.frmLayout_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();

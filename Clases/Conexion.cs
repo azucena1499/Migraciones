@@ -13,17 +13,24 @@ namespace Migraciones.Clases
         private string instancia;
         private string usuario;
         private string contraseña;
-         public Conexion(string servidor, string instancia, string usuario, string contraseña)
+        private string baseDatos;
+         public Conexion(string servidor, string instancia, string usuario, string contraseña,string baseDatos)
          {
             this.servidor = servidor;
             this.instancia = instancia;
             this.usuario = usuario;
             this.contraseña = contraseña;
+            this.baseDatos = baseDatos;
                 
          }
         public string getConexion()
         {
-            string cone = (@"Data Source =" + this.servidor + "; Initial Catalog =" + this.instancia + "; Persist Security Info = True;  User ID =" +this.usuario + "; Password=" + this.contraseña);
+            string serverInstancia = "";
+            if (!string.IsNullOrEmpty(this.instancia))
+            {
+                serverInstancia=(@"\") + serverInstancia;
+            }
+            string cone = (@"Data Source =" + this.servidor + serverInstancia + "; Initial Catalog =" + this.instancia + "; Persist Security Info = True;  User ID =" +this.usuario + "; Password=" + this.contraseña);
             return cone;
         }
   

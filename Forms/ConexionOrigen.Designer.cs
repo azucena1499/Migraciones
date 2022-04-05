@@ -58,7 +58,7 @@ namespace Migraciones.Forms
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(83, 155);
+            this.txtContraseña.Location = new System.Drawing.Point(85, 178);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(202, 20);
@@ -66,7 +66,7 @@ namespace Migraciones.Forms
             // 
             // txtServidor
             // 
-            this.txtServidor.Location = new System.Drawing.Point(83, 78);
+            this.txtServidor.Location = new System.Drawing.Point(85, 78);
             this.txtServidor.Name = "txtServidor";
             this.txtServidor.Size = new System.Drawing.Size(202, 20);
             this.txtServidor.TabIndex = 12;
@@ -74,7 +74,7 @@ namespace Migraciones.Forms
             // lblContraseña
             // 
             this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Location = new System.Drawing.Point(17, 159);
+            this.lblContraseña.Location = new System.Drawing.Point(12, 181);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(61, 13);
             this.lblContraseña.TabIndex = 11;
@@ -83,7 +83,7 @@ namespace Migraciones.Forms
             // lblinstancia
             // 
             this.lblinstancia.AutoSize = true;
-            this.lblinstancia.Location = new System.Drawing.Point(17, 108);
+            this.lblinstancia.Location = new System.Drawing.Point(28, 106);
             this.lblinstancia.Name = "lblinstancia";
             this.lblinstancia.Size = new System.Drawing.Size(45, 13);
             this.lblinstancia.TabIndex = 9;
@@ -92,7 +92,7 @@ namespace Migraciones.Forms
             // lblServidor
             // 
             this.lblServidor.AutoSize = true;
-            this.lblServidor.Location = new System.Drawing.Point(17, 82);
+            this.lblServidor.Location = new System.Drawing.Point(27, 81);
             this.lblServidor.Name = "lblServidor";
             this.lblServidor.Size = new System.Drawing.Size(46, 13);
             this.lblServidor.TabIndex = 8;
@@ -101,7 +101,7 @@ namespace Migraciones.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 237);
+            this.label1.Location = new System.Drawing.Point(29, 231);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 16;
@@ -117,14 +117,14 @@ namespace Migraciones.Forms
             // 
             // txtInstancia
             // 
-            this.txtInstancia.Location = new System.Drawing.Point(83, 104);
+            this.txtInstancia.Location = new System.Drawing.Point(85, 103);
             this.txtInstancia.Name = "txtInstancia";
             this.txtInstancia.Size = new System.Drawing.Size(202, 20);
             this.txtInstancia.TabIndex = 20;
             // 
             // txtEmpresa
             // 
-            this.txtEmpresa.Location = new System.Drawing.Point(83, 207);
+            this.txtEmpresa.Location = new System.Drawing.Point(85, 203);
             this.txtEmpresa.Name = "txtEmpresa";
             this.txtEmpresa.Size = new System.Drawing.Size(202, 20);
             this.txtEmpresa.TabIndex = 22;
@@ -132,7 +132,7 @@ namespace Migraciones.Forms
             // Empresa
             // 
             this.Empresa.AutoSize = true;
-            this.Empresa.Location = new System.Drawing.Point(17, 211);
+            this.Empresa.Location = new System.Drawing.Point(25, 206);
             this.Empresa.Name = "Empresa";
             this.Empresa.Size = new System.Drawing.Size(48, 13);
             this.Empresa.TabIndex = 21;
@@ -200,15 +200,15 @@ namespace Migraciones.Forms
             // txtClave
             // 
             this.txtClave.Enabled = false;
-            this.txtClave.Location = new System.Drawing.Point(83, 52);
+            this.txtClave.Location = new System.Drawing.Point(83, 53);
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(50, 20);
+            this.txtClave.Size = new System.Drawing.Size(202, 20);
             this.txtClave.TabIndex = 25;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 56);
+            this.label2.Location = new System.Drawing.Point(39, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 24;
@@ -218,7 +218,7 @@ namespace Migraciones.Forms
             // 
             this.cboxSistema.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxSistema.FormattingEnabled = true;
-            this.cboxSistema.Location = new System.Drawing.Point(83, 233);
+            this.cboxSistema.Location = new System.Drawing.Point(85, 228);
             this.cboxSistema.Name = "cboxSistema";
             this.cboxSistema.Size = new System.Drawing.Size(202, 21);
             this.cboxSistema.TabIndex = 26;
@@ -235,7 +235,7 @@ namespace Migraciones.Forms
             // 
             // txtBaseDatos
             // 
-            this.txtBaseDatos.Location = new System.Drawing.Point(83, 129);
+            this.txtBaseDatos.Location = new System.Drawing.Point(85, 128);
             this.txtBaseDatos.Name = "txtBaseDatos";
             this.txtBaseDatos.Size = new System.Drawing.Size(202, 20);
             this.txtBaseDatos.TabIndex = 29;
@@ -243,7 +243,7 @@ namespace Migraciones.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 133);
+            this.label3.Location = new System.Drawing.Point(11, 131);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 13);
             this.label3.TabIndex = 28;
@@ -251,7 +251,7 @@ namespace Migraciones.Forms
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(83, 181);
+            this.txtUsuario.Location = new System.Drawing.Point(85, 153);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(202, 20);
             this.txtUsuario.TabIndex = 31;
@@ -259,7 +259,7 @@ namespace Migraciones.Forms
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(20, 184);
+            this.lblUsuario.Location = new System.Drawing.Point(30, 156);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 30;

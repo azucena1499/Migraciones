@@ -151,7 +151,8 @@ namespace Migraciones.Forms
 
         private void toolNuevo_Click(object sender, EventArgs e)
         {
-            
+            existe = false;
+
             txtdescripcion.Clear();
             txtclave.Clear();
             txtclave.Focus();

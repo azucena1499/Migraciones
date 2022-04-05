@@ -25,7 +25,7 @@ namespace Migraciones.Forms
 
         private void validarCampos()
         {  //si no estan vacios los txt se habilita btn
-            if (!string.IsNullOrEmpty(txtServidor.Text) && txtServidor.Text.Trim() != "" && !string.IsNullOrEmpty(txtInstancia.Text) && txtInstancia.Text.Trim() != "")
+            if (!string.IsNullOrEmpty(txtServidor.Text) && txtServidor.Text.Trim() != "" && !string.IsNullOrEmpty(txtbaseDatos.Text) && txtbaseDatos.Text.Trim() != "")
             {
                 btnEntrar.Enabled = true;
             }
@@ -47,7 +47,7 @@ namespace Migraciones.Forms
             try
             {
 
-                this.objConexionPrincipal = new Clases.Conexion(txtServidor.Text, txtInstancia.Text, txtUsuario.Text, txtContraseña.Text);
+                this.objConexionPrincipal = new Clases.Conexion(txtServidor.Text, txtbaseDatos.Text, txtUsuario.Text, txtContraseña.Text,txtinstancia.Text);
                 SqlConnection cone = new SqlConnection(objConexionPrincipal.getConexion());
                 cone.Open();
 

@@ -68,6 +68,7 @@ namespace Migraciones.Forms
             txtInstancia.Clear();
             cboxSistema.SelectedValue = 0;
             txtServidor.Clear();
+            txtUsuario.Clear();
             txtClave.Clear();
             txtBaseDatos.Clear();
             maximo();
@@ -160,7 +161,9 @@ namespace Migraciones.Forms
         private void toolNuevo_Click(object sender, EventArgs e)
         {
             limpiar();
+            existe = false;
             
+
         }
 
         private void toolBuscar_Click(object sender, EventArgs e)
@@ -197,7 +200,7 @@ namespace Migraciones.Forms
                 // habilitar guardar
                 // Mensaje de conexion exitosa
                 // cerrar conexion
-                Clases.Conexion conexionOrigen = new Clases.Conexion(txtServidor.Text, txtInstancia.Text,txtUsuario.Text ,txtContraseña.Text);
+                Clases.Conexion conexionOrigen = new Clases.Conexion(txtServidor.Text, txtBaseDatos.Text,txtUsuario.Text ,txtContraseña.Text,txtInstancia.Text);
                 SqlConnection cone = new SqlConnection(conexionOrigen.getConexion());
                 cone.Open();
                 toolGuardar.Enabled = true;
@@ -210,7 +213,7 @@ namespace Migraciones.Forms
             catch (SqlException err)
             {
                 //mandar mensaje de conexion incorrecta
-                MessageBox.Show("Error : " + err.Message, "Error conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error : " + err.Message, "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //Inactivar guardar
                 toolGuardar.Enabled = false;
 

@@ -69,28 +69,28 @@ namespace Migraciones.Forms
             // sistemasToolStripMenuItem1
             // 
             this.sistemasToolStripMenuItem1.Name = "sistemasToolStripMenuItem1";
-            this.sistemasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sistemasToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
             this.sistemasToolStripMenuItem1.Text = "Sistemas";
             this.sistemasToolStripMenuItem1.Click += new System.EventHandler(this.sistemasToolStripMenuItem1_Click);
             // 
             // tablasToolStripMenuItem1
             // 
             this.tablasToolStripMenuItem1.Name = "tablasToolStripMenuItem1";
-            this.tablasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.tablasToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
             this.tablasToolStripMenuItem1.Text = "Tablas";
             this.tablasToolStripMenuItem1.Click += new System.EventHandler(this.tablasToolStripMenuItem1_Click);
             // 
             // conexionesToolStripMenuItem1
             // 
             this.conexionesToolStripMenuItem1.Name = "conexionesToolStripMenuItem1";
-            this.conexionesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.conexionesToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
             this.conexionesToolStripMenuItem1.Text = "Conexiones";
             this.conexionesToolStripMenuItem1.Click += new System.EventHandler(this.conexionesToolStripMenuItem1_Click);
             // 
             // consultasToolStripMenuItem1
             // 
             this.consultasToolStripMenuItem1.Name = "consultasToolStripMenuItem1";
-            this.consultasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.consultasToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
             this.consultasToolStripMenuItem1.Text = "Consultas";
             this.consultasToolStripMenuItem1.Click += new System.EventHandler(this.consultasToolStripMenuItem1_Click);
             // 
@@ -108,6 +108,7 @@ namespace Migraciones.Forms
             this.generarLayoutsToolStripMenuItem.Name = "generarLayoutsToolStripMenuItem";
             this.generarLayoutsToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.generarLayoutsToolStripMenuItem.Text = "Generar Layouts";
+            this.generarLayoutsToolStripMenuItem.Click += new System.EventHandler(this.generarLayoutsToolStripMenuItem_Click);
             // 
             // configurarConexionToolStripMenuItem
             // 
