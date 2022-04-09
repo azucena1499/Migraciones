@@ -129,6 +129,8 @@ namespace Migraciones.Forms
             this.txtinstancia.Name = "txtinstancia";
             this.txtinstancia.Size = new System.Drawing.Size(181, 20);
             this.txtinstancia.TabIndex = 14;
+            this.txtinstancia.Text = "dbo";
+            this.txtinstancia.TextChanged += new System.EventHandler(this.txtinstancia_TextChanged_1);
             // 
             // label1
             // 

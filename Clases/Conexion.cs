@@ -30,7 +30,7 @@ namespace Migraciones.Clases
             {
                 serverInstancia=(@"\") + serverInstancia;
             }
-            string cone = (@"Data Source =" + this.servidor + serverInstancia + "; Initial Catalog =" + this.instancia + "; Persist Security Info = True;  User ID =" +this.usuario + "; Password=" + this.contraseña);
+            string cone = (@"Server=" + this.servidor + serverInstancia + "; Database=" + this.baseDatos + "; Persist Security Info = True;  User ID =" +this.usuario + "; Password=" + this.contraseña);
             return cone;
         }
   

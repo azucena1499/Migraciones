@@ -68,6 +68,7 @@ namespace Migraciones.Forms
             frmConexionOrigen frm = new frmConexionOrigen(this.objConexionPrincipal);
             frm.MdiParent = this;
             frm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            frm.StartPosition = FormStartPosition.CenterScreen;
             frm.Show();
         }
 
@@ -75,6 +76,7 @@ namespace Migraciones.Forms
         {
             frmLayout frm = new frmLayout(this.objConexionPrincipal);
             frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
             frm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             frm.Show();
         }

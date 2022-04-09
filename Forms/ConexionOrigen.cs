@@ -97,7 +97,7 @@ namespace Migraciones.Forms
 
 
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("Conexiones Origen guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Conexiones origen guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 if (existe)
                 {
@@ -117,7 +117,7 @@ namespace Migraciones.Forms
                     comando.Parameters.AddWithValue("@usuarioC", txtUsuario.Text);
 
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("Conexiones Origen modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Conexiones origen modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
             }
@@ -143,7 +143,7 @@ namespace Migraciones.Forms
                 SqlCommand comandoo = new SqlCommand(query1, cone);
                 comandoo.Parameters.Clear();
                 comandoo.Parameters.AddWithValue("@id", txtClave.Text);
-                if (MessageBox.Show("La conexión sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
+                if (MessageBox.Show("La conexión sera eliminada,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Stop) == DialogResult.Yes)
                 {
                     comandoo.ExecuteNonQuery();
@@ -168,7 +168,8 @@ namespace Migraciones.Forms
 
         private void toolBuscar_Click(object sender, EventArgs e)
         {
-            Migraciones.Forms.frmBusquedaConexionesOrigen frm = new Migraciones.Forms.frmBusquedaConexionesOrigen(objConexion);
+            Migraciones.Forms.frmBusquedaConexionesOrigen frm= new Migraciones.Forms.frmBusquedaConexionesOrigen(objConexion);
+            frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
 
             if (frm.DialogResult == DialogResult.OK)
@@ -200,7 +201,7 @@ namespace Migraciones.Forms
                 // habilitar guardar
                 // Mensaje de conexion exitosa
                 // cerrar conexion
-                Clases.Conexion conexionOrigen = new Clases.Conexion(txtServidor.Text, txtBaseDatos.Text,txtUsuario.Text ,txtContraseña.Text,txtInstancia.Text);
+                Clases.Conexion conexionOrigen = new Clases.Conexion(txtServidor.Text, txtInstancia.Text,txtUsuario.Text ,txtContraseña.Text,txtBaseDatos.Text);
                 SqlConnection cone = new SqlConnection(conexionOrigen.getConexion());
                 cone.Open();
                 toolGuardar.Enabled = true;

@@ -47,7 +47,7 @@ namespace Migraciones.Forms
             try
             {
 
-                this.objConexionPrincipal = new Clases.Conexion(txtServidor.Text, txtbaseDatos.Text, txtUsuario.Text, txtContraseña.Text,txtinstancia.Text);
+                this.objConexionPrincipal = new Clases.Conexion(txtServidor.Text, txtinstancia.Text, txtUsuario.Text, txtContraseña.Text,txtbaseDatos.Text);
                 SqlConnection cone = new SqlConnection(objConexionPrincipal.getConexion());
                 cone.Open();
 
@@ -71,6 +71,11 @@ namespace Migraciones.Forms
         }
 
         private void frmConexion_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtinstancia_TextChanged_1(object sender, EventArgs e)
         {
 
         }
