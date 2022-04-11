@@ -37,8 +37,10 @@ namespace Migraciones.Forms
 
             da.SelectCommand = cmd;
             dgBusquedaConexion.DataSource = dt;
-        
-            }
+            llenarcboxSistema();
+
+
+        }
         public void buscar(String expresion)
         {
             try
@@ -61,7 +63,28 @@ namespace Migraciones.Forms
             }
 
         }
-        
+        private void llenarcboxSistema()
+        {
+            DataTable dt = new DataTable();
+            cone = new SqlConnection(objConexionPrincipal.getConexion());
+            cone.Open();
+            string query = "SELECT * from ConexionesOrigen where id >=1 order by empresaC";
+            //defino comando
+            SqlCommand comando = new SqlCommand(query, cone);
+            //defino mi adapter
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            //lleno el datatable
+            da.Fill(dt);
+            cone.Close();
+            DataRow fila = dt.NewRow();
+            fila["empresaC"] = "Seleccione";
+            dt.Rows.InsertAt(fila, 0);
+            this.cboxempresa.DataSource = dt;
+            this.cboxempresa.ValueMember = "id";
+            this.cboxempresa.DisplayMember = "empresaC";
+            cone.Close();
+        }
+
 
         private void txtExpresion_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -84,6 +107,12 @@ namespace Migraciones.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void cboxempresa_SelectedValueChanged(object sender, EventArgs e)
+        {
+            buscar(cboxempresa.Text);
+
         }
     }
 }

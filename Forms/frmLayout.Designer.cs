@@ -69,7 +69,7 @@ namespace Migraciones.Forms
             this.toolEjecutar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolEjecutar.Name = "toolEjecutar";
             this.toolEjecutar.Size = new System.Drawing.Size(34, 36);
-            this.toolEjecutar.Text = "toolStripButton2";
+            this.toolEjecutar.Text = "Ejecutar";
             this.toolEjecutar.ToolTipText = "Buscar";
             this.toolEjecutar.Click += new System.EventHandler(this.toolEjecutar_Click);
             // 
@@ -81,7 +81,7 @@ namespace Migraciones.Forms
             this.btnExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(36, 36);
-            this.btnExcel.Text = "toolStripButton1";
+            this.btnExcel.Text = "Exportar";
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // label1
@@ -212,7 +212,7 @@ namespace Migraciones.Forms
             this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmLayout";
-            this.Text = "frmLayout";
+            this.Text = "Layout";
             this.Load += new System.EventHandler(this.frmLayout_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

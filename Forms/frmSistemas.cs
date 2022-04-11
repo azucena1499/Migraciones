@@ -157,7 +157,7 @@ namespace Migraciones
                     comando.Parameters.AddWithValue("@nombre", txtNombre.Text);
 
                     comando.ExecuteNonQuery();//es para verificar los editados
-                    MessageBox.Show("Sistema guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Sistema guardado con éxito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNombre.Clear();
                     maximo();
                 }
@@ -172,7 +172,7 @@ namespace Migraciones
                     comando.Parameters.AddWithValue("@id", int.Parse(txtClave.Text)); //este es para ya modificar 
                     comando.Parameters.AddWithValue("@nombre", txtNombre.Text);
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("Sistema modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Sistema modificado con éxito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
             }
@@ -190,7 +190,7 @@ namespace Migraciones
                 SqlCommand comandoo = new SqlCommand(query1, cone);
                 comandoo.Parameters.Clear();
                 comandoo.Parameters.AddWithValue("@id", txtClave.Text);
-                if (MessageBox.Show("El Sistema sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
+                if (MessageBox.Show("El Sistema será  eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Stop) == DialogResult.Yes)
                 {
                     comandoo.ExecuteNonQuery();

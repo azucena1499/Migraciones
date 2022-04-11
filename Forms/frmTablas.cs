@@ -110,7 +110,7 @@ namespace Migraciones.Forms
                 comando.Parameters.AddWithValue("@descripcion", txtdescripcion.Text);
 
                 comando.ExecuteNonQuery();//es para verificar los editados
-                MessageBox.Show("Registro guardado con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Registro guardado con éxito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtdescripcion.Clear();
                 //txtClave.Clear();
                
@@ -126,7 +126,7 @@ namespace Migraciones.Forms
                 comando.Parameters.AddWithValue("@id", int.Parse(txtclave.Text)); //este es para ya modificar 
                 comando.Parameters.AddWithValue("@descripcion", txtdescripcion.Text);
                 comando.ExecuteNonQuery();
-                MessageBox.Show("Registro modificado con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Registro modificado con éxito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
         }
@@ -137,7 +137,7 @@ namespace Migraciones.Forms
             SqlCommand comandoo = new SqlCommand(query1, cone);
             comandoo.Parameters.Clear();
             comandoo.Parameters.AddWithValue("@id", txtclave.Text);
-            if (MessageBox.Show("El registro sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
+            if (MessageBox.Show("El registro será  eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Stop) == DialogResult.Yes)
             {
                 comandoo.ExecuteNonQuery();

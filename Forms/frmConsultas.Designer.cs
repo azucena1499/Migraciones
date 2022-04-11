@@ -184,6 +184,7 @@ namespace Migraciones.Forms
             this.toolGuardar.Name = "toolGuardar";
             this.toolGuardar.Size = new System.Drawing.Size(36, 36);
             this.toolGuardar.Text = "toolBar";
+            this.toolGuardar.ToolTipText = "Guardar/Modificar";
             this.toolGuardar.Click += new System.EventHandler(this.toolGuardar_Click);
             // 
             // toolBuscar
@@ -207,7 +208,7 @@ namespace Migraciones.Forms
             this.toolEliminar.Name = "toolEliminar";
             this.toolEliminar.Size = new System.Drawing.Size(36, 36);
             this.toolEliminar.Text = "toolEliminar";
-            this.toolEliminar.ToolTipText = "toolEliminar";
+            this.toolEliminar.ToolTipText = "Eliminar";
             this.toolEliminar.Click += new System.EventHandler(this.toolEliminar_Click);
             // 
             // statusStrip1

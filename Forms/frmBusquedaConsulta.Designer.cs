@@ -65,6 +65,7 @@ namespace Migraciones.Forms
             this.cboxsistema1.Name = "cboxsistema1";
             this.cboxsistema1.Size = new System.Drawing.Size(211, 21);
             this.cboxsistema1.TabIndex = 29;
+            this.cboxsistema1.SelectedIndexChanged += new System.EventHandler(this.cboxsistema1_SelectedIndexChanged);
             this.cboxsistema1.SelectedValueChanged += new System.EventHandler(this.cboxsistema1_SelectedValueChanged);
             // 
             // label1
@@ -78,7 +79,7 @@ namespace Migraciones.Forms
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(671, 315);
+            this.btnCancelar.Location = new System.Drawing.Point(714, 312);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 30);
             this.btnCancelar.TabIndex = 22;
@@ -87,7 +88,7 @@ namespace Migraciones.Forms
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(590, 315);
+            this.btnAceptar.Location = new System.Drawing.Point(633, 312);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 30);
             this.btnAceptar.TabIndex = 21;
@@ -108,9 +109,9 @@ namespace Migraciones.Forms
             this.Script,
             this.id_sistema,
             this.id_tabla});
-            this.dgBusquedaConsulta.Location = new System.Drawing.Point(0, 64);
+            this.dgBusquedaConsulta.Location = new System.Drawing.Point(3, 64);
             this.dgBusquedaConsulta.Name = "dgBusquedaConsulta";
-            this.dgBusquedaConsulta.Size = new System.Drawing.Size(774, 212);
+            this.dgBusquedaConsulta.Size = new System.Drawing.Size(772, 212);
             this.dgBusquedaConsulta.TabIndex = 20;
             // 
             // cID

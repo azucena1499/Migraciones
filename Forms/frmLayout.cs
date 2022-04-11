@@ -37,11 +37,11 @@ namespace Migraciones.Forms
             da.Fill(dt);
             cone.Close();
             DataRow fila = dt.NewRow();
-            fila["base_datos"] = "Seleccione";
+            fila["empresaC"] = "Seleccione";
             dt.Rows.InsertAt(fila, 0);
             this.cboxConexion.DataSource = dt;
             this.cboxConexion.ValueMember = "id";
-            this.cboxConexion.DisplayMember = "base_datos";
+            this.cboxConexion.DisplayMember = "empresaC";
             cone.Close();
         }
         private void llenarCboxSistema()

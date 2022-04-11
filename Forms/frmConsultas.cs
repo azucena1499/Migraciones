@@ -151,7 +151,7 @@ namespace Migraciones.Forms
                     comando.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
                     comando.Parameters.AddWithValue("@script", txtConsulta.Text);
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("Consulta guardada con exito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Consulta guardada con éxito", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //txtClave.Clear();
                 }
                 if (existe)
@@ -168,7 +168,7 @@ namespace Migraciones.Forms
                     comando.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
                     comando.Parameters.AddWithValue("@script", txtConsulta.Text);
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("consulta modificada con exito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("consulta modificada con éxito", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
             }
@@ -200,7 +200,7 @@ namespace Migraciones.Forms
                 SqlCommand comandoo = new SqlCommand(query1, cone);
                 comandoo.Parameters.Clear();
                 comandoo.Parameters.AddWithValue("@id", txtClave.Text);
-                if (MessageBox.Show("La consulta sera eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
+                if (MessageBox.Show("La consulta será  eliminado,esta seguro?", "Eliminar", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Stop) == DialogResult.Yes)
                 {
                     comandoo.ExecuteNonQuery();

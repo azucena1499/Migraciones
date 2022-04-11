@@ -99,5 +99,10 @@ namespace Migraciones.Forms
             buscar(cboxsistema1.Text);
 
         }
+
+        private void cboxsistema1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

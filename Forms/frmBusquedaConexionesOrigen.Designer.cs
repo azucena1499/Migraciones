@@ -45,6 +45,7 @@ namespace Migraciones.Forms
             this.empresaa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.base_datos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuarioC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboxempresa = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgBusquedaConexion)).BeginInit();
             this.SuspendLayout();
@@ -53,18 +54,19 @@ namespace Migraciones.Forms
             // 
             this.statusStrip1.Location = new System.Drawing.Point(0, 428);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1074, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1109, 22);
             this.statusStrip1.TabIndex = 29;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cboxempresa);
             this.panel2.Controls.Add(this.txtExpresion);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1074, 58);
+            this.panel2.Size = new System.Drawing.Size(1109, 58);
             this.panel2.TabIndex = 28;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -87,7 +89,7 @@ namespace Migraciones.Forms
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(725, 395);
+            this.btnCancelar.Location = new System.Drawing.Point(982, 395);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 30);
             this.btnCancelar.TabIndex = 27;
@@ -96,7 +98,7 @@ namespace Migraciones.Forms
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(644, 395);
+            this.btnAceptar.Location = new System.Drawing.Point(901, 395);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 30);
             this.btnAceptar.TabIndex = 26;
@@ -122,7 +124,7 @@ namespace Migraciones.Forms
             this.dgBusquedaConexion.Location = new System.Drawing.Point(0, 64);
             this.dgBusquedaConexion.Name = "dgBusquedaConexion";
             this.dgBusquedaConexion.ReadOnly = true;
-            this.dgBusquedaConexion.Size = new System.Drawing.Size(1116, 325);
+            this.dgBusquedaConexion.Size = new System.Drawing.Size(1078, 325);
             this.dgBusquedaConexion.TabIndex = 25;
             // 
             // cID
@@ -193,18 +195,28 @@ namespace Migraciones.Forms
             this.usuarioC.Name = "usuarioC";
             this.usuarioC.ReadOnly = true;
             // 
+            // cboxempresa
+            // 
+            this.cboxempresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxempresa.FormattingEnabled = true;
+            this.cboxempresa.Location = new System.Drawing.Point(201, 13);
+            this.cboxempresa.Name = "cboxempresa";
+            this.cboxempresa.Size = new System.Drawing.Size(211, 21);
+            this.cboxempresa.TabIndex = 30;
+            this.cboxempresa.SelectedValueChanged += new System.EventHandler(this.cboxempresa_SelectedValueChanged);
+            // 
             // frmBusquedaConexionesOrigen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1074, 450);
+            this.ClientSize = new System.Drawing.Size(1109, 450);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dgBusquedaConexion);
             this.Name = "frmBusquedaConexionesOrigen";
-            this.Text = "frmBusquedaConexionesOrigen";
+            this.Text = "Busqueda Conexiones Origen";
             this.Load += new System.EventHandler(this.frmBusquedaConexionesOrigen_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -232,5 +244,6 @@ namespace Migraciones.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn empresaa;
         private System.Windows.Forms.DataGridViewTextBoxColumn base_datos;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuarioC;
+        private System.Windows.Forms.ComboBox cboxempresa;
     }
 }
